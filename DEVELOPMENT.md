@@ -1,4 +1,4 @@
-# Development Guide - Tema Cursor Tailwind CSS
+# Development Guide - Tema AR Modern Monoline
 
 Panduan pengembangan untuk tema OpenSID berbasis Tailwind CSS.
 
@@ -12,8 +12,8 @@ Panduan pengembangan untuk tema OpenSID berbasis Tailwind CSS.
 ### Installation
 ```bash
 # Clone repository
-git clone <repository-url>
-cd storage/app/themes/cursor
+git clone https://github.com/kevlar453/tema-monoline-opensid.git
+cd desa/themes/ar-modern-1
 
 # Install dependencies
 npm install
@@ -25,7 +25,7 @@ npm run dev
 ## 🏗️ Project Structure
 
 ```
-storage/app/themes/cursor/
+desa/themes/ar-modern-1/
 ├── src/
 │   └── input.css              # Main Tailwind CSS input file
 ├── assets/

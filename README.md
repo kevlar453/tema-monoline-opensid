@@ -1,6 +1,6 @@
-# Tema Cursor Tailwind CSS - Pure Version
+# Tema AR Modern Monoline - OpenSID
 
-Tema OpenSID modern berbasis Tailwind CSS murni tanpa dependency eksternal, dengan desain yang menarik dan responsive untuk semua ukuran layar.
+Tema OpenSID modern berbasis Tailwind CSS murni dengan integrasi penuh desain Monoline yang responsive untuk semua ukuran layar.
 
 ## 🚀 Fitur Utama
 
@@ -113,7 +113,7 @@ Tambahkan custom styles di `src/input.css`:
 
 ### Struktur File
 ```
-storage/app/themes/cursor/
+desa/themes/ar-modern-1/
 ├── config.json              # Konfigurasi tema
 ├── composer.json            # Package information
 ├── package.json             # Build tools dan dependencies
