@@ -23,62 +23,69 @@
     $perempuan = \App\Models\PendudukHidup::where('sex', 2)->count();
     $totKeluarga = \App\Models\Keluarga::count();
 @endphp
-<section class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center pt-20" style="background-image: url('{{ $heroImage }}'); background-size: cover; background-position: center;">
-    <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
-    <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px] relative z-10 text-center">
-        <h1 class="text-5xl lg:text-7xl font-bold text-white font-heading mb-6 tracking-tight uppercase leading-tight drop-shadow-lg">
+<<section class="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center pt-20" style="background-image: url('{{ $heroImage }}'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 bg-slate-950/70 mix-blend-multiply"></div>
+    <!-- Glowing background nodes -->
+    <div class="absolute w-[30vw] h-[30vw] bg-primary-600/10 blur-[120px] rounded-full top-1/4 left-1/4"></div>
+    <div class="absolute w-[30vw] h-[30vw] bg-accent-500/5 blur-[120px] rounded-full bottom-1/4 right-1/4"></div>
+    
+    <div class="relative z-10 text-center px-6 py-10 md:py-16 max-w-4xl mx-auto bg-slate-950/40 backdrop-blur-md rounded-3xl border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] animate-fade-in-up">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-accent-400 rounded-full tracking-widest uppercase mb-4">
+            Portal Resmi Pemerintah
+        </span>
+        <h1 class="text-white text-3xl md:text-5xl lg:text-6xl font-extrabold font-heading mb-6 tracking-tight uppercase leading-tight">
             Desa Kualan Hilir
         </h1>
-        <p class="text-2xl lg:text-3xl text-slate-200 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
-            Mewujudkan masyarakat desa yang mandiri, sejahtera, dan berbudaya melalui tata kelola pemerintahan yang baik.
+        <p class="text-white/80 text-base md:text-lg font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+            Terwujudnya masyarakat desa yang mandiri, sejahtera, dan berbudaya melalui tata kelola pemerintahan yang transparan dan berbasis digital.
         </p>
-        <a href="#layanan" class="inline-block bg-accent-500 hover:bg-accent-600 text-slate-900 font-bold px-10 py-5 text-xl rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_10px_20px_rgba(255,185,0,0.3)] uppercase tracking-wider">
-            PELAJARI LEBIH LANJUT
+        <a href="#layanan" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-slate-950 font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_10px_25px_rgba(255,185,0,0.35)] group">
+            PELAJARI LEBIH LANJUT <i class="fas fa-arrow-down text-xs transition-transform group-hover:translate-y-1"></i>
         </a>
     </div>
 </section>
 
 <!-- 2. SERVICES SECTION -->
-<section class="py-24 bg-slate-50 relative -mt-16 z-20">
+<section id="layanan" class="py-24 bg-slate-50 relative -mt-16 z-20">
     <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px]">
-        <div class="bg-white rounded-3xl shadow-xl p-8 lg:p-12">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 font-heading mb-6 uppercase tracking-wide">Layanan Unggulan</h2>
-                <p class="text-slate-500 max-w-3xl mx-auto text-xl lg:text-2xl">Akses cepat menuju berbagai layanan pemerintahan dan informasi publik desa.</p>
+        <div class="bg-white/80 backdrop-blur-lg rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.06)] border border-slate-200/50 p-8 lg:p-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 font-heading mb-3 tracking-wide">LAYANAN UNGGULAN</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-base">Akses cepat menuju berbagai layanan pemerintahan dan informasi publik desa.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 <!-- Layanan Mandiri -->
                 @if ((bool) setting('layanan_mandiri'))
-                <a href="{{ site_url('layanan-mandiri') }}" class="group flex gap-8 p-8 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
-                    <div class="w-20 h-20 bg-primary-50 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 transition-colors shadow-sm">
-                        <i class="fas fa-desktop text-4xl text-primary-600 group-hover:text-white transition-colors"></i>
+                <a href="{{ site_url('layanan-mandiri') }}" class="group flex gap-6 p-6 rounded-2xl bg-white hover:bg-primary-50/30 border border-slate-100 hover:border-primary-100 shadow-sm transition-all duration-300 hover:shadow-md glow-primary-hover">
+                    <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 transition-colors">
+                        <i class="fas fa-desktop text-2xl text-primary-600 group-hover:text-white transition-colors"></i>
                     </div>
                     <div>
-                        <h4 class="text-2xl font-bold text-slate-800 font-heading mb-3 group-hover:text-primary-600 transition-colors">Layanan Mandiri</h4>
-                        <p class="text-lg text-slate-500 leading-relaxed">Urus surat menyurat secara online tanpa harus antre di balai desa.</p>
+                        <h4 class="text-lg font-bold text-slate-800 font-heading mb-2">Layanan Mandiri</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Urus surat menyurat secara online tanpa harus antre di balai desa.</p>
                     </div>
                 </a>
                 @endif
                 
                 <!-- Data Wilayah -->
-                <a href="{{ site_url('data-wilayah') }}" class="group flex gap-8 p-8 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
-                    <div class="w-20 h-20 bg-emerald-50 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500 transition-colors shadow-sm">
-                        <i class="fas fa-map-marked-alt text-4xl text-emerald-500 group-hover:text-white transition-colors"></i>
+                <a href="{{ site_url('data-wilayah') }}" class="group flex gap-6 p-6 rounded-2xl bg-white hover:bg-teal-50/30 border border-slate-100 hover:border-teal-100 shadow-sm transition-all duration-300 hover:shadow-md glow-cyan-hover">
+                    <div class="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-teal-500 transition-colors">
+                        <i class="fas fa-map-marked-alt text-2xl text-teal-600 group-hover:text-white transition-colors"></i>
                     </div>
                     <div>
-                        <h4 class="text-2xl font-bold text-slate-800 font-heading mb-3 group-hover:text-emerald-500 transition-colors">Data Wilayah</h4>
-                        <p class="text-lg text-slate-500 leading-relaxed">Statistik dan demografi kependudukan yang selalu diperbarui.</p>
+                        <h4 class="text-lg font-bold text-slate-800 font-heading mb-2">Data Wilayah</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Statistik dan demografi kependudukan yang selalu diperbarui.</p>
                     </div>
                 </a>
 
                 <!-- Transparansi APBDes -->
-                <a href="{{ site_url('apbdesa') }}" class="group flex gap-8 p-8 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
-                    <div class="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500 transition-colors shadow-sm">
-                        <i class="fas fa-chart-pie text-4xl text-amber-500 group-hover:text-white transition-colors"></i>
+                <a href="{{ site_url('apbdesa') }}" class="group flex gap-6 p-6 rounded-2xl bg-white hover:bg-amber-50/30 border border-slate-100 hover:border-amber-100 shadow-sm transition-all duration-300 hover:shadow-md glow-primary-hover">
+                    <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500 transition-colors">
+                        <i class="fas fa-chart-pie text-2xl text-amber-500 group-hover:text-white transition-colors"></i>
                     </div>
                     <div>
-                        <h4 class="text-2xl font-bold text-slate-800 font-heading mb-3 group-hover:text-amber-500 transition-colors">Transparansi</h4>
-                        <p class="text-lg text-slate-500 leading-relaxed">Laporan APBDes dan rincian pembangunan desa yang terbuka.</p>
+                        <h4 class="text-lg font-bold text-slate-800 font-heading mb-2">Transparansi</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Laporan APBDes dan rincian pembangunan desa yang terbuka.</p>
                     </div>
                 </a>
             </div>
@@ -86,29 +93,43 @@
     </div>
 </section>
 
-<!-- 3. COUNTER STRIP SECTION (BLUE) -->
-<section class="bg-primary-600 py-16">
-    <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1400px]">
+<!-- 3. COUNTER STRIP SECTION (DARK SLATE WITH TECH GRID) -->
+<section class="relative bg-slate-950 py-20 overflow-hidden">
+    <!-- Sci-fi glowing grid background -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#0284c7_1px,transparent_1px),linear-gradient(to_bottom,#0284c7_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-[0.08]"></div>
+    <!-- Floating glowing nodes -->
+    <div class="absolute w-[20vw] h-[20vw] bg-teal-500/5 blur-[80px] rounded-full -top-10 left-10"></div>
+    <div class="absolute w-[20vw] h-[20vw] bg-primary-600/5 blur-[80px] rounded-full -bottom-10 right-10"></div>
+
+    <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1400px] relative z-10">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
-            <div class="flex flex-col items-center justify-center">
-                <i class="fas fa-users text-5xl mb-4 text-accent-500"></i>
-                <h3 class="text-5xl lg:text-6xl font-bold font-heading mb-2">{{ number_format($totPenduduk, 0, ',', '.') }}</h3>
-                <p class="text-primary-100 font-medium uppercase tracking-wider text-base">Penduduk</p>
+            <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-white/10 transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-primary-500/10 flex items-center justify-center mb-4 text-primary-400">
+                    <i class="fas fa-users text-xl"></i>
+                </div>
+                <h3 class="text-4xl font-extrabold font-heading mb-1.5 tracking-tight text-white">{{ number_format($totPenduduk, 0, ',', '.') }}</h3>
+                <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Total Penduduk</p>
             </div>
-            <div class="flex flex-col items-center justify-center">
-                <i class="fas fa-male text-5xl mb-4 text-accent-500"></i>
-                <h3 class="text-5xl lg:text-6xl font-bold font-heading mb-2">{{ number_format($lakiLaki, 0, ',', '.') }}</h3>
-                <p class="text-primary-100 font-medium uppercase tracking-wider text-base">Laki-laki</p>
+            <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-white/10 transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-teal-500/10 flex items-center justify-center mb-4 text-teal-400">
+                    <i class="fas fa-male text-xl"></i>
+                </div>
+                <h3 class="text-4xl font-extrabold font-heading mb-1.5 tracking-tight text-white">{{ number_format($lakiLaki, 0, ',', '.') }}</h3>
+                <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Laki-Laki</p>
             </div>
-            <div class="flex flex-col items-center justify-center">
-                <i class="fas fa-female text-5xl mb-4 text-accent-500"></i>
-                <h3 class="text-5xl lg:text-6xl font-bold font-heading mb-2">{{ number_format($perempuan, 0, ',', '.') }}</h3>
-                <p class="text-primary-100 font-medium uppercase tracking-wider text-base">Perempuan</p>
+            <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-white/10 transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center mb-4 text-pink-400">
+                    <i class="fas fa-female text-xl"></i>
+                </div>
+                <h3 class="text-4xl font-extrabold font-heading mb-1.5 tracking-tight text-white">{{ number_format($perempuan, 0, ',', '.') }}</h3>
+                <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Perempuan</p>
             </div>
-            <div class="flex flex-col items-center justify-center">
-                <i class="fas fa-home text-5xl mb-4 text-accent-500"></i>
-                <h3 class="text-5xl lg:text-6xl font-bold font-heading mb-2">{{ number_format($totKeluarga, 0, ',', '.') }}</h3>
-                <p class="text-primary-100 font-medium uppercase tracking-wider text-base">Keluarga</p>
+            <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-white/10 transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center mb-4 text-amber-400">
+                    <i class="fas fa-home text-xl"></i>
+                </div>
+                <h3 class="text-4xl font-extrabold font-heading mb-1.5 tracking-tight text-white">{{ number_format($totKeluarga, 0, ',', '.') }}</h3>
+                <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Keluarga</p>
             </div>
         </div>
     </div>
@@ -180,7 +201,7 @@
 
             @if (!empty($displayArticles))
                 @foreach ($displayArticles as $post)
-                    <article class="bg-white rounded-2xl shadow-[0_5px_20px_rgba(0,0,0,0.05)] overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                    <article class="bg-white rounded-2xl border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden group hover:-translate-y-2 hover:shadow-soft hover:border-slate-200 transition-all duration-300">
                         <!-- Image -->
                         <div class="relative h-56 overflow-hidden">
                             @if (is_file(LOKASI_FOTO_ARTIKEL . 'kecil_' . $post['gambar']))
@@ -247,7 +268,7 @@
         <div class="aparatur-carousel -mx-4">
             @foreach ($aparatur_desa as $aparatur)
                 <div class="text-center group px-4">
-                    <div class="relative w-48 h-48 lg:w-56 lg:h-56 mx-auto mb-8 rounded-full overflow-hidden shadow-xl border-8 border-white group-hover:border-primary-100 transition-all duration-300">
+                    <div class="relative w-48 h-48 lg:w-56 lg:h-56 mx-auto mb-8 rounded-3xl overflow-hidden shadow-xl border-8 border-white group-hover:border-primary-500/30 group-hover:shadow-glow-primary transition-all duration-300">
                         @php
                             $fotoUrl = AmbilFoto($aparatur->foto_staff, '', $aparatur->penduduk ? $aparatur->penduduk->sex : '1');
                         @endphp
