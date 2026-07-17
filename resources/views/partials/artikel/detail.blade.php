@@ -74,14 +74,27 @@
     </article>
 
     <!-- Author Box -->
+    @php
+        $ownerName = $single_artikel['owner'] ?? 'Admin';
+        $userModel = \App\Models\User::where('nama', $ownerName)->orWhere('username', $ownerName)->first();
+        $avatarUrl = asset('images/pengguna/kuser.png');
+        if ($userModel && $userModel->foto) {
+            $userPictPath = LOKASI_USER_PICT . $userModel->foto;
+            if (is_file(FCPATH . $userPictPath)) {
+                $avatarUrl = base_url($userPictPath);
+            } else {
+                $avatarUrl = asset('images/pengguna/' . $userModel->foto);
+            }
+        }
+    @endphp
     <div class="mb-[30px] mt-[60px] overflow-hidden">
-        <h3 class="border-b border-[#eee] text-[#1b2032] text-[20px] font-semibold mb-[20px] pb-[10px] capitalize">About the author</h3>
-        <div class="bg-white p-[40px] rounded-[10px] shadow-[0_10px_40px_-10px_rgba(0,64,128,.08)] overflow-hidden">
+        <h3 class="border-b border-slate-100 text-slate-800 text-[20px] font-heading font-extrabold mb-[20px] pb-[10px] capitalize tracking-wider">About the author</h3>
+        <div class="bg-white/80 backdrop-blur-lg p-8 rounded-2xl border border-slate-200/50 shadow-soft overflow-hidden">
             <div class="flex flex-col sm:flex-row gap-[20px] items-start">
-                <img src="{{ asset('assets/images/pengguna/kuser.png') }}" alt="{{ $single_artikel['owner'] }}" class="w-[120px] h-[120px] flex-shrink-0 object-cover rounded-[100px] border-[4px] border-[#ffaa17]">
+                <img src="{{ $avatarUrl }}" alt="{{ $single_artikel['owner'] }}" class="w-[100px] h-[100px] flex-shrink-0 object-cover rounded-2xl border-[3px] border-primary-500/20 shadow-sm">
                 <div class="flex-1">
-                    <h4 class="text-[16px] font-bold text-[#1b2032] mb-[10px] uppercase tracking-[1px]">{{ $single_artikel['owner'] }}</h4>
-                    <p class="text-[#666] text-[15px] leading-[28px] m-0">
+                    <h4 class="text-[16px] font-bold text-slate-800 mb-[10px] uppercase tracking-[1px] font-heading">{{ $single_artikel['owner'] }}</h4>
+                    <p class="text-slate-600 text-[15px] leading-[28px] m-0">
                         Aparatur Pemerintah Desa yang berdedikasi tinggi dalam melayani masyarakat dan memberikan informasi publik secara transparan.
                     </p>
                 </div>
