@@ -8,8 +8,8 @@
             <div class="flex items-center gap-3">
                 <a href="{{ site_url() }}" class="flex items-center gap-3 group">
                     <img src="{{ gambar_desa($desa['logo']) }}" alt="Logo {{ setting('sebutan_desa') }}" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
-                    <div class="hidden sm:flex flex-col">
-                        <span class="text-lg font-bold text-white transition-colors duration-300 leading-none tracking-tight font-heading nav-text">{{ ucwords(setting('sebutan_desa')) }} {{ $desa['nama_desa'] }}</span>
+                    <div class="flex flex-col">
+                        <span class="text-sm sm:text-lg font-bold text-white transition-colors duration-300 leading-none tracking-tight font-heading nav-text">{{ ucwords(setting('sebutan_desa')) }} {{ $desa['nama_desa'] }}</span>
                     </div>
                 </a>
             </div>
@@ -137,7 +137,7 @@ window.addEventListener('scroll', function() {
 });
 
 // Run once on load
-document.dispatchEvent(new Event('scroll'));
+window.dispatchEvent(new Event('scroll'));
 
 // Mobile menu and Search
 document.addEventListener('DOMContentLoaded', function() {
