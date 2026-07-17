@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Article Header -->
-    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 mb-6">
+    <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-soft border border-slate-200/50 p-6 mb-6">
         <div class="space-y-4">
             <!-- Breadcrumb -->
             <nav class="flex items-center space-x-2 text-sm text-gray-500">
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Article Content -->
-    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 mb-6">
+    <div class="bg-white/85 backdrop-blur-lg rounded-2xl shadow-soft border border-slate-200/50 p-8 mb-6">
         <!-- Featured Image -->
         @if (isset($artikel['gambar']) && !empty($artikel['gambar']))
             <div class="relative mb-8 overflow-hidden rounded-xl">
@@ -104,7 +104,7 @@
     </div>
 
     <!-- Related Articles -->
-    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 mb-6">
+    <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-soft border border-slate-200/50 p-6 mb-6">
         <h3 class="text-xl font-bold text-gray-900 mb-4">Artikel Terkait</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @for ($i = 1; $i <= 3; $i++)
@@ -126,7 +126,7 @@
     </div>
 
     <!-- Social Share -->
-    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 mb-6">
+    <div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-soft border border-slate-200/50 p-6 mb-6">
         <h3 class="text-lg font-semibold text-gray-900 mb-4">Bagikan Artikel:</h3>
         <div class="flex items-center space-x-4">
             <a href="#" class="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200">

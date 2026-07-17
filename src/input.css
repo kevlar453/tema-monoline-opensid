@@ -278,7 +278,27 @@
   
   /* Glass morphism effect */
   .glass {
-    @apply bg-white/25 backdrop-blur-md border border-white/18;
+    @apply bg-white/25 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/70 backdrop-blur-lg border border-slate-800/80 shadow-lg;
+  }
+
+  .glass-light {
+    @apply bg-white/80 backdrop-blur-lg border border-slate-200/40 shadow-soft;
+  }
+
+  .glow-cyan-hover {
+    @apply transition-all duration-300 hover:shadow-glow-cyan;
+  }
+
+  .glow-primary-hover {
+    @apply transition-all duration-300 hover:shadow-glow-primary;
+  }
+
+  .border-gradient-teal-cyan {
+    border-image: linear-gradient(to right, #0d9488, #06b6d4) 1;
   }
   
   /* Custom grid layouts */
