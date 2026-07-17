@@ -126,6 +126,14 @@
             @include('theme::partials.menu_head')
         </nav>
 
+        @if (theme_config('iklan_header'))
+            <div class="container mx-auto px-4 mt-6 max-w-[1200px] flex justify-center">
+                <div class="w-full overflow-hidden flex justify-center py-2 bg-white rounded-xl border border-gray-200 shadow-sm adsense-header-container">
+                    {!! theme_config('iklan_header') !!}
+                </div>
+            </div>
+        @endif
+
         <!-- Main Content Area - This will expand to fill available space -->
         <main class="flex-1 flex-grow bg-slate-50">
             @yield('layout')

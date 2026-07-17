@@ -136,5 +136,57 @@
         "options": null,
         "readonly":false,
         "link": true
+    },
+    {
+        "judul": "Kode Iklan Header",
+        "key": "iklan_header",
+        "value": "",
+        "type": "textarea",
+        "placeholder": "Masukkan kode script Google Ads untuk banner header...",
+        "keterangan": "Kode iklan (HTML/Script) yang akan ditampilkan di bagian bawah menu utama / header.",
+        "readonly": false,
+        "attributes": {
+            "class": "form-control input-sm",
+            "rows": "4"
+        }
+    },
+    {
+        "judul": "Kode Iklan Sidebar",
+        "key": "iklan_sidebar",
+        "value": "",
+        "type": "textarea",
+        "placeholder": "Masukkan kode script Google Ads untuk sidebar...",
+        "keterangan": "Kode iklan (HTML/Script) yang akan ditampilkan di bagian sidebar website.",
+        "readonly": false,
+        "attributes": {
+            "class": "form-control input-sm",
+            "rows": "4"
+        }
+    },
+    {
+        "judul": "Kode Iklan Artikel Atas",
+        "key": "iklan_artikel_atas",
+        "value": "",
+        "type": "textarea",
+        "placeholder": "Masukkan kode script Google Ads untuk bagian atas artikel...",
+        "keterangan": "Kode iklan (HTML/Script) yang akan ditampilkan di bagian atas konten artikel.",
+        "readonly": false,
+        "attributes": {
+            "class": "form-control input-sm",
+            "rows": "4"
+        }
+    },
+    {
+        "judul": "Kode Iklan Artikel Bawah",
+        "key": "iklan_artikel_bawah",
+        "value": "",
+        "type": "textarea",
+        "placeholder": "Masukkan kode script Google Ads untuk bagian bawah artikel...",
+        "keterangan": "Kode iklan (HTML/Script) yang akan ditampilkan di bagian bawah konten artikel.",
+        "readonly": false,
+        "attributes": {
+            "class": "form-control input-sm",
+            "rows": "4"
+        }
     }
 ]

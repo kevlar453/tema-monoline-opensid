@@ -296,4 +296,34 @@
     .similar_post h2 i {
         color: {{ $warna_dasar }};
     }
+
+    /* Google AdSense Neat Placements Styling */
+    .adsense-header-container,
+    .adsense-sidebar-container,
+    .adsense-article-top,
+    .adsense-article-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+    .adsense-header-container ins,
+    .adsense-sidebar-container ins,
+    .adsense-article-top ins,
+    .adsense-article-bottom ins {
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    /* Prevent empty auto-ads containers from creating weird blank space issues */
+    iframe[name="google_ads_iframe"], 
+    ins.adsbygoogle[data-ad-status="unfilled"] {
+        display: none !important;
+    }
 </style>

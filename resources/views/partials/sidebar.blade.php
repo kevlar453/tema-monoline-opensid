@@ -7,6 +7,16 @@
         </div>
     @endif
 
+    <!-- Iklan Sidebar -->
+    @if (theme_config('iklan_sidebar'))
+        <div class="bg-white p-[30px] rounded-[10px] border-t-[3px] border-[#ffaa17] shadow-[0_10px_40px_-10px_rgba(0,64,128,0.2)] mb-[30px] flex flex-col items-center">
+            <h4 class="border-b border-[#eee] text-[#1b2032] text-[20px] font-semibold mb-[15px] pb-[10px] w-full capitalize">Sponsor</h4>
+            <div class="w-full flex justify-center overflow-hidden adsense-sidebar-container">
+                {!! theme_config('iklan_sidebar') !!}
+            </div>
+        </div>
+    @endif
+
     <!-- Widget Aktif -->
     @if ($widgetAktif)
         @foreach ($widgetAktif as $widget)

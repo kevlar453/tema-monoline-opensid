@@ -67,6 +67,12 @@
             </div>
         @endif
         
+        @if (theme_config('iklan_artikel_atas'))
+            <div class="w-full flex justify-center my-6 overflow-hidden adsense-article-top">
+                {!! theme_config('iklan_artikel_atas') !!}
+            </div>
+        @endif
+        
         <!-- Article Text Content -->
         <div class="prose prose-lg max-w-none">
             @if (isset($artikel['isi']))
@@ -75,6 +81,12 @@
                 <p class="text-gray-600">Konten artikel tidak tersedia.</p>
             @endif
         </div>
+
+        @if (theme_config('iklan_artikel_bawah'))
+            <div class="w-full flex justify-center my-6 overflow-hidden adsense-article-bottom">
+                {!! theme_config('iklan_artikel_bawah') !!}
+            </div>
+        @endif
         
         <!-- Article Tags -->
         @if (isset($artikel['tag']) && !empty($artikel['tag']))
