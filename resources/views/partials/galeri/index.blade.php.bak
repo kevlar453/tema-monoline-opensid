@@ -1,0 +1,98 @@
+@extends('theme::layouts.full-content')
+
+@push('styles')
+    <!-- Custom styles removed in favor of Tailwind CSS utility classes -->
+@endpush
+
+@section('content')
+    <div class="single_category wow fadeInDown">
+        <h2><span class="bold_line"><span></span></span> <span class="solid_line"></span> <span class="title_text">
+                @if ($is_detail)
+                    <a href="{{ ci_route('galeri') }}">Album Galeri</a>
+                @else
+                    Album
+                @endif {{ $title_galeri }}
+            </span></h2>
+    </div>
+
+    <div class="mt-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galeri-list"></div>
+        <div class="mt-10 flex justify-center">
+            @include('theme::commons.pagination')
+        </div>
+    </div>
+@endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var parent = `{{ $parent }}`;
+            var routeGaleri = `{{ ci_route('internal_api.galeri') }}`;
+            let pageSizes = 6;
+            let status = '';
+
+            if (parent) {
+                routeGaleri = `{{ ci_route('internal_api.galeri') }}/${parent}`;
+                pageSizes = 10;
+            }
+
+            const loadGaleri = function(pageNumber) {
+                $.ajax({
+                    url: routeGaleri + `?sort=-tgl_upload&page[number]=${pageNumber}&page[size]=${pageSizes}`,
+                    type: "GET",
+                    beforeSend: function() {
+                        const galeriList = document.getElementById('galeri-list');
+                        galeriList.innerHTML = `<div class="col-span-full text-center py-10 text-slate-500"><i class="fas fa-spinner fa-spin text-3xl mb-3"></i><p>Memuat galeri...</p></div>`;
+                    },
+                    dataType: 'json',
+                    data: {},
+                    success: function(data) {
+                        displayGaleri(data);
+                        initPagination(data);
+                    },
+                    error: function() {
+                        const galeriList = document.getElementById('galeri-list');
+                        galeriList.innerHTML = `<div class="col-span-full p-4 bg-red-50 text-red-500 rounded-lg border border-red-100 text-center">Data galeri tidak dapat dimuat saat ini.</div>`;
+                    }
+                });
+            }
+
+            const displayGaleri = function(dataGaleri) {
+                const galeriList = document.getElementById('galeri-list');
+                galeriList.innerHTML = '';
+                if (!dataGaleri.data || !dataGaleri.data.length) {
+                    galeriList.innerHTML = `<div class="col-span-full p-4 bg-slate-50 text-slate-500 rounded-lg border border-slate-100 text-center">Data tidak tersedia</div>`
+                    return
+                }
+                const ulBlock = document.createElement('div');
+                ulBlock.className = 'row';
+                dataGaleri.data.forEach(item => {
+                    const card = document.createElement('div');
+                    const image = item.attributes.src_gambar ? `<img class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105" src="${item.attributes.src_gambar}" alt="${item.attributes.nama}"/>` : `<div class="w-full h-56 bg-slate-100 flex items-center justify-center"><i class="fas fa-image text-4xl text-slate-300"></i></div>`;
+                    card.innerHTML = `
+					<a href="${item.attributes.url_detail}" class="block group h-full">
+						<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-slate-100 h-full flex flex-col transform hover:-translate-y-1">
+                            <div class="overflow-hidden relative">
+								${image}
+                                <div class="absolute inset-0 bg-accent-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col justify-center bg-white z-10">
+								<h3 class="text-lg font-bold text-slate-800 text-center font-heading group-hover:text-accent-500 transition-colors line-clamp-2">${item.attributes.nama}</h3>
+                            </div>
+						</div>
+					</a>
+				`;
+                    card.onclick = function() {}
+                    galeriList.appendChild(card);
+                });
+            }
+
+            $('.pagination').on('click', '.btn-page', function() {
+                var params = {};
+                var page = $(this).data('page');
+                loadGaleri(page);
+            });
+            loadGaleri(1);
+        });
+    </script>
+@endpush

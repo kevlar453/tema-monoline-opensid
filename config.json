@@ -1,0 +1,140 @@
+[
+    {
+        "judul":"Warna Dasar Tema",
+        "key":"warna_dasar",
+        "value":"#0284c7",
+        "type":"color-picker",
+        "keterangan":"Warna Dasar Tema yang akan digunakan pada website (Primary Color)",
+        "options": null,
+        "readonly":false
+    },
+    {
+        "judul":"Warna Sekunder",
+        "key":"warna_sekunder",
+        "value":"#0d9488",
+        "type":"color-picker",
+        "keterangan":"Warna Sekunder untuk elemen pendukung website",
+        "options": null,
+        "readonly":false
+    },
+    {
+        "judul":"Mode Tema",
+        "key":"mode_tema",
+        "value":"light",
+        "type":"select",
+        "keterangan":"Pilih mode tema website",
+        "options":{
+            "light":"Light Mode",
+            "dark":"Dark Mode",
+            "auto":"Auto (Sesuai Sistem)"
+        },
+        "attributes": {
+            "class":"select2"
+        },
+        "readonly":false
+    },
+    {
+        "judul":"Statistik [desa]",
+        "key":"statistik_desa",
+        "value":"1",
+        "type":"select",
+        "keterangan":"Tampilkan statistik [desa] pada footer website",
+        "options":{
+            "1":"Ya",
+            "0":"Tidak"
+        },
+        "attributes": {
+            "class":"select2"
+        },
+        "readonly":false
+    },
+    {
+        "judul":"Jam",
+        "key":"jam",
+        "value":"1",
+        "type":"select",
+        "keterangan":"Tampilkan jam pada website",
+        "options":{
+            "1":"Ya",
+            "0":"Tidak"
+        },
+        "attributes": {
+            "class":"select2"
+        },
+        "readonly":false
+    },
+    {
+        "judul":"Pintasan Masuk",
+        "key":"pintasan_masuk",
+        "value":"1",
+        "type":"select",
+        "keterangan":"Tampilkan pintasan masuk admin dan layanan mandiri pada website",
+        "options":{
+            "1":"Ya",
+            "0":"Tidak"
+        },
+        "attributes": {
+            "class":"select2"
+        },
+        "readonly":false
+    },
+    {
+        "judul":"Animasi Hover",
+        "key":"animasi_hover",
+        "value":"1",
+        "type":"select",
+        "keterangan":"Aktifkan animasi hover pada elemen website",
+        "options":{
+            "1":"Ya",
+            "0":"Tidak"
+        },
+        "attributes": {
+            "class":"select2"
+        },
+        "readonly":false
+    },
+    {
+        "judul":"Shadow Cards",
+        "key":"shadow_cards",
+        "value":"1",
+        "type":"select",
+        "keterangan":"Tampilkan shadow pada card dan elemen website",
+        "options":{
+            "1":"Ya",
+            "0":"Tidak"
+        },
+        "attributes": {
+            "class":"select2"
+        },
+        "readonly":false
+    },
+    {
+        "judul":"Border Radius",
+        "key":"border_radius",
+        "value":"lg",
+        "type":"select",
+        "keterangan":"Pilih ukuran border radius untuk elemen website",
+        "options":{
+            "none":"Tidak Ada",
+            "sm":"Kecil",
+            "md":"Sedang",
+            "lg":"Besar",
+            "xl":"Sangat Besar",
+            "full":"Full Rounded"
+        },
+        "attributes": {
+            "class":"select2"
+        },
+        "readonly":false
+    },
+    {
+        "judul":"Foto Tidak Tersedia",
+        "key":"foto_tidak_tersedia",
+        "value": null,
+        "type":"unggah",
+        "keterangan":"Tampilkan foto ketika foto tidak tersedia",
+        "options": null,
+        "readonly":false,
+        "link": true
+    }
+]

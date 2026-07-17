@@ -1,0 +1,29 @@
+{
+    "name": "ymakarius/theme-ar-modern-1",
+    "description": "Tema OpenSID ar-modern-1 yang sangat ringan, modern, dan responsive",
+    "type": "opendesadesa-theme",
+    "version": "2.0.0",
+    "keywords": [
+        "ymakarius",
+        "theme",
+        "tailwind",
+        "responsive",
+        "modern"
+    ],
+    "homepage": "https://github.com/kevlar453/tema-monoline-opensid",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ymakarius",
+            "email": "ymakarius@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenDesaDesa\\ThemeArModern1\\": "src/"
+        }
+    }
+}
