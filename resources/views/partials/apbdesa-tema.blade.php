@@ -1,13 +1,13 @@
 @php defined('BASEPATH') || exit('No direct script access allowed'); @endphp
 
 <!-- APBDesa Transparansi Section -->
-<div class="bg-white py-16" id="transparansi-footer">
+<div class="bg-transparent py-12" id="transparansi-footer">
     <div class="container mx-auto px-4">
         <!-- Section Header -->
         <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Transparansi Anggaran</h2>
-            <div class="w-32 h-1 bg-primary-600 mx-auto rounded-full"></div>
-            <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+            <h2 class="text-4xl font-extrabold text-slate-800 mb-4 font-heading tracking-tight">Transparansi Anggaran</h2>
+            <div class="w-24 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
+            <p class="text-lg text-slate-600 mt-4 max-w-2xl mx-auto font-sans leading-relaxed">
                 Informasi lengkap tentang realisasi dan anggaran {{ ucwords(setting('sebutan_desa')) }} untuk meningkatkan transparansi dan akuntabilitas
             </p>
         </div>
@@ -15,23 +15,23 @@
         <!-- APBDesa Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ($data_widget as $subdata_name => $subdatas)
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="bg-white/80 backdrop-blur-lg rounded-2xl border border-slate-200/50 p-8 shadow-soft hover:shadow-md hover:border-primary-100 transition-all duration-300">
                     <!-- Header -->
                     <div class="text-center mb-8">
-                        <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <div class="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-primary-100">
                             <i class="fas fa-chart-pie text-primary-600 text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2 font-heading">
                             {{ \Illuminate\Support\Str::of($subdatas['laporan'])->when(setting('sebutan_desa') != 'desa', function (\Illuminate\Support\Stringable $string) {
                                 return $string->replace('Des', \Illuminate\Support\Str::of(setting('sebutan_desa'))->substr(0, 1)->ucfirst());
                             }) }}
                         </h3>
-                        <div class="w-20 h-0.5 bg-primary-400 mx-auto rounded-full"></div>
+                        <div class="w-16 h-1 bg-primary-400 mx-auto rounded-full"></div>
                     </div>
                     
                     <!-- Subtitle -->
                     <div class="text-center mb-8">
-                        <h4 class="text-lg font-semibold text-gray-700">Realisasi | Anggaran</h4>
+                        <h4 class="text-sm font-extrabold text-slate-500 uppercase tracking-widest font-heading">Realisasi | Anggaran</h4>
                     </div>
                     
                     <!-- Progress Items -->
@@ -39,9 +39,9 @@
                         @foreach ($subdatas as $key => $subdata)
                             @continue(!is_array($subdata))
                             @if ($subdata['judul'] != null and $key != 'laporan' and $subdata['realisasi'] != 0 or $subdata['anggaran'] != 0)
-                                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                                <div class="bg-slate-50/50 rounded-xl p-5 border border-slate-100 hover:border-slate-200 transition-all duration-300">
                                     <!-- Title -->
-                                    <h5 class="text-sm font-medium text-gray-900 mb-4 leading-tight">
+                                    <h5 class="text-sm font-bold text-slate-800 mb-4 leading-tight font-heading">
                                         {{ \Illuminate\Support\Str::of($subdata['judul'])->title()->whenEndsWith('Desa', function (\Illuminate\Support\Stringable $string) {
                                                 if (!in_array($string, ['Dana Desa'])) {
                                                     return $string->replace('Desa', setting('sebutan_desa'));
@@ -52,25 +52,25 @@
                                     <!-- Amounts -->
                                     <div class="flex justify-between items-center mb-4 text-sm">
                                         <div class="text-center">
-                                            <div class="text-green-600 font-bold text-lg">
+                                            <div class="text-emerald-600 font-extrabold text-base lg:text-lg">
                                                 {{ rupiah24($subdata['realisasi'], 'RP ') }}
                                             </div>
-                                            <div class="text-green-500 text-xs">Realisasi</div>
+                                            <div class="text-slate-400 text-xxs font-bold uppercase tracking-wider">Realisasi</div>
                                         </div>
-                                        <div class="text-gray-300 text-2xl">|</div>
+                                        <div class="text-slate-200 text-2xl">|</div>
                                         <div class="text-center">
-                                            <div class="text-blue-600 font-bold text-lg">
+                                            <div class="text-primary-600 font-extrabold text-base lg:text-lg">
                                                 {{ rupiah24($subdata['anggaran']) }}
                                             </div>
-                                            <div class="text-blue-500 text-xs">Anggaran</div>
+                                            <div class="text-slate-400 text-xxs font-bold uppercase tracking-wider">Anggaran</div>
                                         </div>
                                     </div>
                                     
                                     <!-- Progress Bar -->
                                     <div class="relative mb-4">
-                                        <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden shadow-inner">
+                                        <div class="w-full bg-slate-200/80 rounded-full h-4 overflow-hidden shadow-inner">
                                             <div class="progress-bar h-4 rounded-full transition-all duration-1000 ease-out relative"
-                                                 style="width: {{ $subdata['persen'] }}%; background: linear-gradient(90deg, #0284c7 0%, #075985 100%);">
+                                                 style="width: {{ $subdata['persen'] }}%; background: linear-gradient(90deg, #1a63a6 0%, #074e82 100%);">
                                                 <!-- Progress Bar Glow Effect -->
                                                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
                                             </div>
@@ -78,7 +78,7 @@
                                         
                                         <!-- Percentage Badge -->
                                         <div class="absolute -top-2 right-0">
-                                            <span class="bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                                            <span class="bg-primary-600 text-white text-xxs font-extrabold px-2.5 py-1 rounded-full shadow-md font-heading">
                                                 {{ $subdata['persen'] }}%
                                             </span>
                                         </div>
@@ -86,17 +86,17 @@
                                     
                                     <!-- Status Indicator -->
                                     <div class="flex items-center justify-between text-xs">
-                                        <span class="text-gray-500">Status:</span>
+                                        <span class="text-slate-400 font-medium">Status:</span>
                                         @if ($subdata['persen'] >= 100)
-                                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full font-medium">
+                                            <span class="bg-emerald-50 text-emerald-700 border border-emerald-100 px-2 py-0.5 rounded-full font-bold text-xxs">
                                                 <i class="fas fa-check-circle mr-1"></i>Lengkap
                                             </span>
                                         @elseif ($subdata['persen'] >= 80)
-                                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">
+                                            <span class="bg-amber-50 text-amber-700 border border-amber-100 px-2 py-0.5 rounded-full font-bold text-xxs">
                                                 <i class="fas fa-clock mr-1"></i>Sedang Berjalan
                                             </span>
                                         @else
-                                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
+                                            <span class="bg-rose-50 text-rose-700 border border-rose-100 px-2 py-0.5 rounded-full font-bold text-xxs">
                                                 <i class="fas fa-exclamation-circle mr-1"></i>Perlu Perhatian
                                             </span>
                                         @endif
@@ -111,13 +111,13 @@
         
         <!-- Additional Info -->
         <div class="mt-16 text-center">
-            <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Tentang Transparansi Anggaran</h3>
-                <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <div class="bg-slate-50/70 backdrop-blur-md rounded-2xl p-8 border border-slate-200/50 shadow-soft">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 font-heading">Tentang Transparansi Anggaran</h3>
+                <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed font-sans">
                     Transparansi anggaran merupakan salah satu wujud good governance yang bertujuan untuk memberikan informasi 
                     yang akurat, tepat waktu, dan mudah dipahami oleh masyarakat tentang pengelolaan keuangan {{ ucwords(setting('sebutan_desa')) }}.
                 </p>
-                <div class="mt-6 flex items-center justify-center space-x-4 text-sm text-gray-500">
+                <div class="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500 font-medium">
                     <div class="flex items-center">
                         <i class="fas fa-shield-alt text-primary-500 mr-2"></i>
                         <span>Data Terverifikasi</span>

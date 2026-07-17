@@ -3,26 +3,41 @@
     $is_headline = $is_headline ?? false;
 @endphp
 
-<div class="home_single_blog">
-    @if (is_file(LOKASI_FOTO_ARTIKEL . 'kecil_' . $post['gambar']))
-        <img class="img-fluid" src="{{ AmbilFotoArtikel($post['gambar'], 'sedang') }}" alt="{{ $post['judul'] }}" />
-    @else
-        <div style="width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; background: #e2e8f0; border-radius: 10px 10px 0 0;">
-            <i class="fas fa-image text-6xl text-slate-400"></i>
-        </div>
-    @endif
-    <div class="home_blog_content">
-        <div class="blog_title_info">
-            <h2><a href="{{ $post->url_slug }}">{{ $post['judul'] }}</a></h2>
-            <div class="mt-2 flex flex-wrap gap-4 text-sm text-slate-500">
-                <span><i class="far fa-calendar-alt text-[#ffaa17] mr-1"></i> {{ tgl_indo($post['tgl_upload']) }}</span>
-                @if (isset($post['kategori']))
-                    <span><i class="far fa-folder text-[#ffaa17] mr-1"></i> <a href="{{ site_url('artikel/kategori/' . $post['kat_slug']) }}">{{ $post['kategori'] }}</a></span>
-                @endif
-                <span><i class="far fa-eye text-[#ffaa17] mr-1"></i> {{ hit($post['hit']) }} Kali</span>
+<div class="bg-white/80 backdrop-blur-lg rounded-2xl border border-slate-200/50 shadow-soft overflow-hidden group hover:-translate-y-1 hover:shadow-md hover:border-primary-100 transition-all duration-300 flex flex-col md:flex-row gap-6 p-6">
+    <div class="w-full md:w-1/3 h-48 md:h-auto min-h-[180px] flex-shrink-0 relative overflow-hidden rounded-xl bg-slate-50">
+        @if (is_file(LOKASI_FOTO_ARTIKEL . 'kecil_' . $post['gambar']))
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ AmbilFotoArtikel($post['gambar'], 'sedang') }}" alt="{{ $post['judul'] }}" />
+        @else
+            <div class="w-full h-full flex items-center justify-center">
+                <i class="fas fa-image text-4xl text-slate-300"></i>
             </div>
+        @endif
+        @if (isset($post['kategori']))
+            <span class="absolute top-3 left-3 bg-primary-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                {{ $post['kategori'] }}
+            </span>
+        @endif
+    </div>
+    
+    <div class="flex-1 flex flex-col justify-between py-1">
+        <div>
+            <div class="flex items-center gap-3 text-xs text-slate-500 mb-2">
+                <span class="flex items-center gap-1"><i class="far fa-calendar-alt text-primary-500"></i> {{ tgl_indo($post['tgl_upload']) }}</span>
+                <span class="flex items-center gap-1"><i class="far fa-eye text-primary-500"></i> {{ hit($post['hit']) }}</span>
+            </div>
+            
+            <h2 class="text-xl md:text-2xl font-bold text-slate-800 font-heading leading-snug group-hover:text-primary-600 transition-colors mb-3">
+                <a href="{{ $post->url_slug }}">{{ $post['judul'] }}</a>
+            </h2>
+            
+            <p class="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">{!! strip_tags($abstrak) !!}...</p>
         </div>
-        <p class="text-slate-600 leading-relaxed">{!! $abstrak !!}...</p>
-        <a class="home_b_btn" href="{{ $post->url_slug }}">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+        
+        <div>
+            <a class="inline-flex items-center gap-1.5 text-primary-600 hover:text-primary-700 font-bold text-sm transition-colors group/btn" href="{{ $post->url_slug }}">
+                Baca Selengkapnya 
+                <i class="fas fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
     </div>
 </div>

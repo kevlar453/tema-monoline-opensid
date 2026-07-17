@@ -14,7 +14,7 @@
         margin-bottom: 0px;
         border: 0px;
         overflow: hidden;
-        border-radius: 8px;
+        border-radius: 16px;
     }
 
     .cycle-slideshow img {

@@ -5,70 +5,70 @@
         
         <!-- Cover Image (Flush at top) -->
         @if ($single_artikel['gambar'] && is_file(LOKASI_FOTO_ARTIKEL . 'sedang_' . $single_artikel['gambar']))
-            <figure class="w-full mb-[30px]">
-                <img class="w-full h-auto object-cover" 
+            <figure class="w-full mb-[30px] overflow-hidden rounded-2xl shadow-md border border-slate-100">
+                <img class="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-500" 
                      src="{{ AmbilFotoArtikel($single_artikel['gambar'], 'sedang') }}" 
                      alt="{{ $single_artikel['judul'] }}">
             </figure>
         @endif
 
-        <div class="py-4">
+        <div class="py-2">
             <!-- Post Title & Meta -->
-            <div class="border-b border-[#eee] pb-[10px] mb-[20px]">
-                <h2 class="text-3xl lg:text-4xl font-bold text-[#1b2032] font-heading leading-tight mb-[5px] inline-block">
+            <div class="border-b border-slate-100 pb-[15px] mb-[25px]">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-800 font-heading leading-tight mb-[12px] inline-block tracking-tight">
                     {{ $single_artikel['judul'] }}
                 </h2>
-                <div class="mt-2 text-[14px]">
+                <div class="mt-2 flex flex-wrap items-center gap-3 text-[14px]">
                     @if (isset($single_artikel['kategori']))
-                        <span class="mx-[5px]">
-                            <a href="{{ site_url('artikel/kategori/' . $single_artikel['kat_slug']) }}" class="text-[#ffaa17] hover:text-[#1b2032] transition-colors tracking-[1px]">
+                        <span>
+                            <a href="{{ site_url('artikel/kategori/' . $single_artikel['kat_slug']) }}" class="text-primary-600 hover:text-primary-700 font-bold transition-colors tracking-wide uppercase text-xs">
                                 {{ $single_artikel['kategori'] }}
                             </a>
                         </span>
                         <span class="text-slate-300">|</span>
                     @endif
-                    <span class="mx-[5px] text-slate-500">
-                        <i class="far fa-user text-[#ffaa17] mr-1"></i> {{ $single_artikel['owner'] }}
+                    <span class="text-slate-500 flex items-center gap-1">
+                        <i class="far fa-user text-primary-500"></i> {{ $single_artikel['owner'] }}
                     </span>
                     <span class="text-slate-300">|</span>
-                    <span class="mx-[5px] text-slate-500">
-                        <i class="far fa-calendar text-[#ffaa17] mr-1"></i> {{ tgl_indo($single_artikel['tgl_upload']) }}
+                    <span class="text-slate-500 flex items-center gap-1">
+                        <i class="far fa-calendar text-primary-500"></i> {{ tgl_indo($single_artikel['tgl_upload']) }}
                     </span>
                     <span class="text-slate-300">|</span>
-                    <span class="mx-[5px] text-slate-500">
-                        <i class="far fa-eye text-[#ffaa17] mr-1"></i> {{ hit($single_artikel['hit']) }} Views
+                    <span class="text-slate-500 flex items-center gap-1">
+                        <i class="far fa-eye text-primary-500"></i> {{ hit($single_artikel['hit']) }} Views
                     </span>
                 </div>
             </div>
 
             <!-- Post Content (Reading Experience) -->
-            <div class="prose prose-lg max-w-none font-sans leading-[28px] text-[#666] 
-                        prose-headings:font-heading prose-headings:font-bold prose-headings:text-[#1b2032]
-                        prose-a:text-[#ffaa17] hover:prose-a:text-[#1b2032] prose-a:transition-colors prose-a:no-underline hover:prose-a:underline
-                        prose-blockquote:border-l-[4px] prose-blockquote:border-[#ffaa17] prose-blockquote:bg-slate-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:font-semibold prose-blockquote:italic prose-blockquote:text-[#666]
+            <div class="prose prose-lg max-w-none font-sans leading-[28px] text-slate-600 
+                        prose-headings:font-heading prose-headings:font-bold prose-headings:text-slate-800
+                        prose-a:text-primary-600 hover:prose-a:text-primary-700 prose-a:transition-colors prose-a:no-underline hover:prose-a:underline
+                        prose-blockquote:border-l-[4px] prose-blockquote:border-primary-600 prose-blockquote:bg-slate-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:font-semibold prose-blockquote:italic prose-blockquote:text-slate-600
                         mb-[30px]">
                 {!! $single_artikel['isi'] !!}
             </div>
 
             @if ($single_artikel['dokumen'])
                 <!-- Attachments -->
-                <div class="mt-[30px] p-[30px] bg-white rounded-[10px] border-t-[3px] border-[#ffaa17] shadow-[0_10px_40px_-10px_rgba(0,64,128,0.2)]">
-                    <h4 class="text-[20px] font-semibold text-[#1b2032] mb-[15px] pb-[10px] border-b border-[#eee] capitalize">
-                        <i class="fas fa-paperclip text-[#ffaa17]"></i> Lampiran Dokumen
+                <div class="mt-[30px] p-6 bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200/50 shadow-soft">
+                    <h4 class="text-[18px] font-bold text-slate-800 mb-[15px] pb-[10px] border-b border-slate-100 font-heading capitalize flex items-center gap-2">
+                        <i class="fas fa-paperclip text-primary-500"></i> Lampiran Dokumen
                     </h4>
                     <a href="{{ base_url(LOKASI_DOKUMEN . $single_artikel['dokumen']) }}" 
-                       class="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-[#eee] hover:border-[#ffaa17] transition-colors text-[#666] hover:text-[#1b2032] font-semibold text-[14px]">
+                       class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-50 border border-primary-100 hover:bg-primary-100 transition-colors text-primary-700 font-bold rounded-xl text-[14px]">
                         <i class="fas fa-download"></i>
                         <span>Unduh {{ $single_artikel['link_dokumen'] ?: $single_artikel['dokumen'] }}</span>
                     </a>
                 </div>
             @endif
             
-            <div class="flex items-center gap-[10px] mt-[30px] pt-[20px] border-t border-[#eee]">
-                <span class="text-[14px] font-semibold text-[#1b2032] uppercase tracking-[1px] mr-2">Share</span>
-                <a href="http://www.facebook.com/sharer.php?u={{ site_url('artikel/' . $single_artikel['slug']) }}" target="_blank" class="w-[35px] h-[35px] rounded border border-[#eee] text-[#666] flex items-center justify-center hover:bg-[#ffaa17] hover:text-white hover:border-[#ffaa17] transition-colors"><i class="fab fa-facebook-f text-sm"></i></a>
-                <a href="http://twitter.com/share?url={{ site_url('artikel/' . $single_artikel['slug']) }}" target="_blank" class="w-[35px] h-[35px] rounded border border-[#eee] text-[#666] flex items-center justify-center hover:bg-[#ffaa17] hover:text-white hover:border-[#ffaa17] transition-colors"><i class="fab fa-twitter text-sm"></i></a>
-                <a href="https://api.whatsapp.com/send?text={{ site_url('artikel/' . $single_artikel['slug']) }}" target="_blank" class="w-[35px] h-[35px] rounded border border-[#eee] text-[#666] flex items-center justify-center hover:bg-[#ffaa17] hover:text-white hover:border-[#ffaa17] transition-colors"><i class="fab fa-whatsapp text-sm"></i></a>
+            <div class="flex items-center gap-[10px] mt-[30px] pt-[20px] border-t border-slate-100">
+                <span class="text-[14px] font-bold text-slate-800 uppercase tracking-wider mr-2 font-heading">Bagikan</span>
+                <a href="http://www.facebook.com/sharer.php?u={{ site_url('artikel/' . $single_artikel['slug']) }}" target="_blank" class="w-[38px] h-[38px] rounded-xl border border-slate-200 text-slate-500 flex items-center justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-all duration-300 shadow-sm"><i class="fab fa-facebook-f text-sm"></i></a>
+                <a href="http://twitter.com/share?url={{ site_url('artikel/' . $single_artikel['slug']) }}" target="_blank" class="w-[38px] h-[38px] rounded-xl border border-slate-200 text-slate-500 flex items-center justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-all duration-300 shadow-sm"><i class="fab fa-twitter text-sm"></i></a>
+                <a href="https://api.whatsapp.com/send?text={{ site_url('artikel/' . $single_artikel['slug']) }}" target="_blank" class="w-[38px] h-[38px] rounded-xl border border-slate-200 text-slate-500 flex items-center justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-all duration-300 shadow-sm"><i class="fab fa-whatsapp text-sm"></i></a>
             </div>
         </div>
     </article>
@@ -105,7 +105,7 @@
     <!-- Comments Section -->
     @if ($single_artikel['boleh_komentar'])
         <div class="mb-[30px] overflow-hidden">
-            <h3 class="border-b border-[#eee] text-[#1b2032] text-[20px] font-semibold mb-[20px] pb-[10px] capitalize">
+            <h3 class="border-b border-slate-100 text-slate-800 text-[20px] font-bold mb-[20px] pb-[10px] font-heading capitalize tracking-wider">
                 Comments ({{ $single_artikel['jumlah_komentar'] ?? 0 }})
             </h3>
             
