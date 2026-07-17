@@ -379,6 +379,51 @@
                     //Menampilkan BaseLayers Peta
                     let baseLayers = getBaseLayers(mymap, "{{ setting('mapbox_key') }}", "{{ setting('jenis_peta') }}");
 
+                    // Adaptive Map Tile Styles for Dark Mode (Control Center style)
+                    let currentTileLayer = null;
+                    
+                    function updateMapStyle(isDark) {
+                        if (currentTileLayer) {
+                            mymap.removeLayer(currentTileLayer);
+                            currentTileLayer = null;
+                        }
+                        
+                        if (isDark) {
+                            currentTileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                                subdomains: 'abcd',
+                                maxZoom: 20
+                            });
+                            // Temporarily remove other base layers to prevent overlay overlaps
+                            for (let layerName in baseLayers) {
+                                mymap.removeLayer(baseLayers[layerName]);
+                            }
+                            currentTileLayer.addTo(mymap);
+                        } else {
+                            const defaultProvider = "{{ setting('jenis_peta') }}";
+                            if (baseLayers[defaultProvider]) {
+                                baseLayers[defaultProvider].addTo(mymap);
+                            } else {
+                                // Light fallback (CartoDB Positron)
+                                currentTileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                                    subdomains: 'abcd',
+                                    maxZoom: 20
+                                });
+                                currentTileLayer.addTo(mymap);
+                            }
+                        }
+                    }
+                    
+                    // Run on initial load
+                    const initialDark = document.documentElement.classList.contains('dark');
+                    updateMapStyle(initialDark);
+                    
+                    // Listen to theme switch events
+                    window.addEventListener('darkModeChanged', function(e) {
+                        updateMapStyle(e.detail.isDark);
+                    });
+
                     //Geolocation IP Route/GPS
                     geoLocation(mymap);
 

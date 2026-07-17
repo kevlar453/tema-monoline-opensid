@@ -6,6 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @include('theme::commons.meta')
 
+    <!-- Dark Mode Handler (Avoids FOUC) -->
+    <script>
+        (function() {
+            const isDark = localStorage.getItem('darkMode') === 'true' || 
+                           (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+
     <!-- Google Fonts: Oswald & Inter (Monoline Style) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +31,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -105,10 +119,46 @@
             outline: 2px solid #0284c7;
             outline-offset: 2px;
         }
+
+        /* Cyber Grid Background Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(26, 99, 166, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(26, 99, 166, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -20;
+            transition: background-image 0.3s;
+        }
+        
+        .dark body::before {
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.015) 1px, transparent 1px);
+        }
+        
+        /* Subtle radial pulse overlay */
+        .cyber-radial {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(26, 99, 166, 0.02) 0%, transparent 80%);
+            pointer-events: none;
+            z-index: -19;
+            transition: background 0.3s;
+        }
+        
+        .dark .cyber-radial {
+            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.02) 0%, transparent 80%);
+        }
     </style>
 </head>
 
-<body class="bg-gray-50 font-sans antialiased min-h-screen flex flex-col" onLoad="renderDate()">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-300" onLoad="renderDate()">
+    <!-- Cyber background elements -->
+    <div class="cyber-radial"></div>
     <!-- Scroll to Top Button -->
     <button id="scrollToTop" class="fixed bottom-8 right-8 bg-primary-600 text-white p-3 rounded-full shadow-lg hover:bg-primary-700 transition-all duration-300 opacity-0 invisible z-50 group">
         <i class="fas fa-arrow-up group-hover:scale-110 transition-transform duration-200"></i>
@@ -135,7 +185,7 @@
         @endif
 
         <!-- Main Content Area - This will expand to fill available space -->
-        <main class="flex-1 flex-grow bg-slate-50">
+        <main class="flex-1 flex-grow bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
             @yield('layout')
         </main>
 

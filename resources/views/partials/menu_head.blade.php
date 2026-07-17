@@ -28,11 +28,11 @@
                             Berita <i class="fas fa-angle-down text-[10px]"></i>
                         </a>
                         <div class="absolute top-full left-0 pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 w-60 z-50">
-                            <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-slate-200/50 border-t-2 border-t-primary-600 p-2">
-                                <a href="{{ site_url('arsip') }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all">Semua Berita</a>
+                            <div class="bg-white/90 dark:bg-slate-900/95 backdrop-blur-md rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-slate-200/50 dark:border-slate-800/50 border-t-2 border-t-primary-600 p-2">
+                                <a href="{{ site_url('arsip') }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-lg transition-all">Semua Berita</a>
                                 @if (isset($menu_kiri) && is_array($menu_kiri))
                                     @foreach ($menu_kiri as $kategori)
-                                        <a href="{{ site_url('artikel/kategori/' . $kategori['slug']) }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all">{{ $kategori['kategori'] }}</a>
+                                        <a href="{{ site_url('artikel/kategori/' . $kategori['slug']) }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-lg transition-all">{{ $kategori['kategori'] }}</a>
                                     @endforeach
                                 @endif
                             </div>
@@ -44,10 +44,10 @@
                             Statistik <i class="fas fa-angle-down text-[10px]"></i>
                         </a>
                         <div class="absolute top-full left-0 pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 w-60 z-50">
-                            <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-slate-200/50 border-t-2 border-t-primary-600 p-2">
-                                <a href="{{ site_url('data-wilayah') }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all">Data Wilayah</a>
-                                <a href="{{ site_url('data-statistik/pendidikan-dalam-kk') }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all">Pendidikan</a>
-                                <a href="{{ site_url('data-statistik/pekerjaan') }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all">Pekerjaan</a>
+                            <div class="bg-white/90 dark:bg-slate-900/95 backdrop-blur-md rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-slate-200/50 dark:border-slate-800/50 border-t-2 border-t-primary-600 p-2">
+                                <a href="{{ site_url('data-wilayah') }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-lg transition-all">Data Wilayah</a>
+                                <a href="{{ site_url('data-statistik/pendidikan-dalam-kk') }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-lg transition-all">Pendidikan</a>
+                                <a href="{{ site_url('data-statistik/pekerjaan') }}" class="block px-4 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-lg transition-all">Pekerjaan</a>
                             </div>
                         </div>
                     </li>
@@ -64,6 +64,13 @@
                             <i class="fas fa-search"></i>
                         </button>
                     </li>
+                    
+                    <li>
+                        <!-- Dark Mode Toggle Button (Desktop) -->
+                        <button id="dark-mode-toggle" class="text-white hover:text-accent-500 transition-colors duration-200 nav-text ml-4" aria-label="Toggle Dark Mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
                 </ul>
             </nav>
 
@@ -77,19 +84,25 @@
 
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu-overlay fixed inset-0 bg-slate-900/40 backdrop-blur-md z-[110] lg:hidden hidden transition-opacity duration-300 opacity-0">
-    <div class="mobile-menu bg-white/95 backdrop-blur-lg h-full w-80 max-w-[80vw] shadow-2xl border-r border-slate-200/50 transform transition-transform duration-300 ease-in-out -translate-x-full flex flex-col">
-        <div class="flex items-center justify-between p-6 border-b border-slate-200/30">
-            <h3 class="text-lg font-bold text-slate-800 font-heading tracking-wider uppercase">Menu Utama</h3>
-            <button class="mobile-menu-close text-slate-400 hover:text-slate-600 transition-colors text-2xl">
-                <i class="fas fa-times"></i>
-            </button>
+    <div class="mobile-menu bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg h-full w-80 max-w-[80vw] shadow-2xl border-r border-slate-200/50 dark:border-slate-800/50 transform transition-transform duration-300 ease-in-out -translate-x-full flex flex-col transition-colors duration-300">
+        <div class="flex items-center justify-between p-6 border-b border-slate-200/30 dark:border-slate-800/20">
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 font-heading tracking-wider uppercase">Menu Utama</h3>
+            <div class="flex items-center gap-4">
+                <!-- Dark Mode Toggle Button (Mobile) -->
+                <button id="dark-mode-toggle-mobile" class="text-slate-500 dark:text-slate-400 hover:text-primary-600 transition-colors text-xl" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-close text-slate-400 hover:text-slate-600 transition-colors text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
         </div>
         <nav class="p-4 space-y-1 flex-1 overflow-y-auto">
-            <a href="{{ site_url() }}" class="block px-4 py-3 text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border-b border-slate-100/50">Beranda</a>
-            <a href="{{ site_url('arsip') }}" class="block px-4 py-3 text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border-b border-slate-100/50">Berita & Artikel</a>
-            <a href="{{ site_url('data-wilayah') }}" class="block px-4 py-3 text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border-b border-slate-100/50">Statistik Wilayah</a>
-            <a href="{{ site_url('galeri') }}" class="block px-4 py-3 text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border-b border-slate-100/50">Galeri Foto</a>
-            <a href="{{ site_url('pengaduan') }}" class="block px-4 py-3 text-slate-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-xl font-bold uppercase tracking-wider text-xs transition-all">Pengaduan</a>
+            <a href="{{ site_url() }}" class="block px-4 py-3 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border-b border-slate-100/50 dark:border-slate-800/20">Beranda</a>
+            <a href="{{ site_url('arsip') }}" class="block px-4 py-3 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border-b border-slate-100/50 dark:border-slate-800/20">Berita & Artikel</a>
+            <a href="{{ site_url('data-wilayah') }}" class="block px-4 py-3 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border-b border-slate-100/50 dark:border-slate-800/20">Statistik Wilayah</a>
+            <a href="{{ site_url('galeri') }}" class="block px-4 py-3 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border-b border-slate-100/50 dark:border-slate-800/20">Galeri Foto</a>
+            <a href="{{ site_url('pengaduan') }}" class="block px-4 py-3 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-950/20 rounded-xl font-bold uppercase tracking-wider text-xs transition-all">Pengaduan</a>
         </nav>
     </div>
 </div>
@@ -113,22 +126,30 @@ window.addEventListener('scroll', function() {
     const texts = document.querySelectorAll('.nav-text');
     
     const isInnerPage = !document.querySelector('.hero-monoline');
+    const isDark = document.documentElement.classList.contains('dark');
     
     if (window.scrollY > 20 || isInnerPage) {
         nav.classList.remove('bg-transparent', 'py-4');
-        nav.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200/40', 'py-2.5', 'shadow-sm');
-        
-        texts.forEach(t => {
-            t.classList.remove('text-white', 'text-white/90');
-            t.classList.add('text-slate-800');
-        });
+        if (isDark) {
+            nav.classList.add('bg-slate-900/90', 'backdrop-blur-md', 'border-b', 'border-slate-800/80', 'py-2.5', 'shadow-lg');
+            texts.forEach(t => {
+                t.classList.remove('text-white', 'text-white/90');
+                t.classList.add('text-slate-100');
+            });
+        } else {
+            nav.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200/40', 'py-2.5', 'shadow-sm');
+            texts.forEach(t => {
+                t.classList.remove('text-white', 'text-white/90');
+                t.classList.add('text-slate-800');
+            });
+        }
     } else {
         nav.classList.add('bg-transparent', 'py-4');
-        nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200/40', 'py-2.5', 'shadow-sm');
+        nav.classList.remove('bg-white/90', 'bg-slate-900/90', 'backdrop-blur-md', 'border-b', 'border-slate-200/40', 'border-slate-800/80', 'py-2.5', 'shadow-sm', 'shadow-lg');
         
         texts.forEach(t => {
             t.classList.add('text-white', 'text-white/90');
-            t.classList.remove('text-slate-800');
+            t.classList.remove('text-slate-800', 'text-slate-100');
         });
     }
 });
@@ -159,6 +180,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mobileMenuButton) mobileMenuButton.addEventListener('click', openMobileMenu);
     if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+    
+    // Dark Mode Toggle Logic
+    const dmt = document.getElementById('dark-mode-toggle');
+    const dmtMobile = document.getElementById('dark-mode-toggle-mobile');
+    
+    function updateToggleIcons() {
+        const isDark = document.documentElement.classList.contains('dark');
+        const iconClass = isDark ? 'fa-sun text-amber-400' : 'fa-moon text-slate-300';
+        const mobileIconClass = isDark ? 'fa-sun text-amber-500' : 'fa-moon text-slate-500';
+        
+        if (dmt) dmt.innerHTML = `<i class="fas ${iconClass}"></i>`;
+        if (dmtMobile) dmtMobile.innerHTML = `<i class="fas ${mobileIconClass}"></i>`;
+    }
+    
+    function toggleDarkMode() {
+        const html = document.documentElement;
+        const willBeDark = !html.classList.contains('dark');
+        
+        if (willBeDark) {
+            html.classList.add('dark');
+            localStorage.setItem('darkMode', 'true');
+        } else {
+            html.classList.remove('dark');
+            localStorage.setItem('darkMode', 'false');
+        }
+        
+        updateToggleIcons();
+        window.dispatchEvent(new Event('scroll')); // Update nav colors immediately
+        
+        // Custom event for widgets to react to dark mode toggled (e.g. Map, Charts)
+        window.dispatchEvent(new CustomEvent('darkModeChanged', { detail: { isDark: willBeDark } }));
+    }
+    
+    if (dmt) dmt.addEventListener('click', toggleDarkMode);
+    if (dmtMobile) dmtMobile.addEventListener('click', toggleDarkMode);
+    
+    // Initialize icons
+    updateToggleIcons();
 });
 
 function toggleSearch() {
