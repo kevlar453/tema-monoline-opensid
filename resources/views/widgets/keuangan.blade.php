@@ -58,17 +58,25 @@
 
         .graph,
         .graph-sub {
-            padding: 0 12px;
+            padding: 0 4px;
             padding-top: 4px;
         }
 
         .graph-sub {
-            font-family: 'Courier New', monospace;
-            font-size: 10px;
-            color: #333;
-            font-weight: bold;
+            font-family: inherit;
+            font-size: 11px;
+            color: #475569;
+            font-weight: 700;
             text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             white-space: nowrap;
+            margin-top: 8px;
+            transition: color 0.3s;
+        }
+
+        .dark .graph-sub {
+            color: #cbd5e1;
         }
 
         .graph {
@@ -77,8 +85,9 @@
 
         .graph-not-available {
             text-align: center;
-            font-family: 'Courier New', monospace;
+            font-family: inherit;
             font-size: 12px;
+            color: #64748b;
         }
 
         #graph-legend {
@@ -141,6 +150,11 @@
 
         function displayChart(tahun, tipe) {
             resetContainer();
+            var isDark = document.documentElement.classList.contains('dark');
+            var textColor = isDark ? '#e2e8f0' : '#334155';
+            var legendColor = isDark ? '#94a3b8' : '#64748b';
+            var barText = '#0f172a'; // dark text for high contrast on light blue/green bars
+
             switch (tipe) {
                 case "pelaksanaan":
                     var judulGrafik = 'Pelaksanaan APBDes';
@@ -176,7 +190,7 @@
                 subtitle: {
                     y: -2,
                     style: {
-                        "color": "#000"
+                        "color": textColor
                     },
                     text: '',
                 },
@@ -204,7 +218,7 @@
                             align: 'right',
                             inside: true,
                             shadow: false,
-                            color: '#000',
+                            color: barText,
                         },
                         grouping: false,
                     },
@@ -226,17 +240,22 @@
                     padding: 0,
                     margin: 0,
                     verticalAlign: 'middle',
-                    maxHeight: 50
+                    maxHeight: 50,
+                    itemStyle: {
+                        color: legendColor,
+                        fontSize: '11px',
+                        fontWeight: 'semibold'
+                    }
                 },
 
                 series: [{
                         name: 'Anggaran',
-                        color: '#34b4eb',
+                        color: '#0ea5e9',
                         data: [],
                     },
                     {
                         name: 'Realisasi',
-                        color: '#b4eb34',
+                        color: '#10b981',
                         data: [],
                     }
                 ]
@@ -275,7 +294,7 @@
                                 subtitle: {
                                     y: -2,
                                     style: {
-                                        "color": "#000"
+                                        "color": textColor
                                     },
                                     text: '',
                                 },
@@ -287,7 +306,11 @@
 
                                 tooltip: {
                                     valueSuffix: '',
-                                    backgroundColor: "#fff",
+                                    backgroundColor: isDark ? "#1e293b" : "#fff",
+                                    borderColor: isDark ? "#334155" : "silver",
+                                    style: {
+                                        color: textColor
+                                    },
                                     hideDelay: 0,
                                     shape: "square",
                                     outside: true,
@@ -307,7 +330,7 @@
                                             align: 'right',
                                             inside: true,
                                             shadow: false,
-                                            color: '#000',
+                                            color: barText,
                                         },
                                         grouping: false,
                                     },
@@ -331,7 +354,7 @@
 
                                 series: [{
                                     name: 'Anggaran',
-                                    color: '#34b4eb',
+                                    color: '#0ea5e9',
                                     data: [parseInt(subData['anggaran'])],
                                     dataLabels: {
                                         formatter: function() {
@@ -352,7 +375,7 @@
                                     }
                                 }, {
                                     name: 'Realisasi',
-                                    color: '#b4eb34',
+                                    color: '#10b981',
                                     data: [parseInt(subData['realisasi'])],
                                     dataLabels: {
                                         formatter: function() {

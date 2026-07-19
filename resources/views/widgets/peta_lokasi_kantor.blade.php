@@ -41,58 +41,70 @@
     $mapCanvasId = 'map_canvas_' . $uniqId;
 @endphp
 <div class="w-full">
-    <div class="box-body">
-        <div id="{{ $mapCanvasId }}" style="height:200px;"></div>
-        <button class="btn btn-success btn-block">
-            <a href="https://www.openstreetmap.org/#map=15/{{ $data_config['lat'] }}/{{ $data_config['lng'] }}" style="color:#fff;" rel="noopener noreferrer" target="_blank">Buka Peta</a>
-        </button>
-        <button class="btn btn-success btn-block" data-toggle="collapse" data-target="#collapse2" aria-expanded="false">
-            Detail
-            <i class="fa fa-chevron-up pull-right"></i>
-            <i class="fa fa-chevron-down pull-right"></i>
-        </button>
-        <div id="collapse2" class="panel-collapse collapse">
-            <br>
+    <div class="space-y-4">
+        <!-- Map Canvas with rounded borders and shadow -->
+        <div id="{{ $mapCanvasId }}" class="w-full h-[220px] rounded-2xl border border-slate-200/50 dark:border-slate-800 shadow-inner overflow-hidden relative z-10"></div>
+        
+        <div class="flex flex-col gap-2">
+            <a href="https://www.openstreetmap.org/#map=15/{{ $data_config['lat'] }}/{{ $data_config['lng'] }}" 
+               rel="noopener noreferrer" 
+               target="_blank" 
+               class="bg-gradient-to-r from-primary-600 to-teal-500 hover:from-primary-700 hover:to-teal-600 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-center w-full uppercase tracking-wider text-xs block hover:-translate-y-0.5"
+            >
+                <i class="fas fa-map-marked-alt mr-1.5"></i> Buka Peta
+            </a>
+            
+            <button 
+                class="bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-200 font-bold py-3 px-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-center w-full uppercase tracking-wider text-xs flex items-center justify-center gap-1.5 focus:outline-none hover:-translate-y-0.5" 
+                data-toggle="collapse" 
+                data-target="#collapse2" 
+                aria-expanded="false"
+            >
+                <span>Detail Kantor</span>
+                <i class="fa fa-chevron-down text-[10px] transition-transform duration-300"></i>
+            </button>
+        </div>
+        
+        <div id="collapse2" class="panel-collapse collapse border border-slate-100 dark:border-slate-800/60 rounded-2xl p-4 bg-slate-50/50 dark:bg-slate-950/20">
             @if (is_file(FCPATH . LOKASI_LOGO_DESA . $desa['kantor_desa']))
-                <img class="img-responsive" src="{{ gambar_desa($desa['kantor_desa'], true) }}" alt="Kantor Desa">
-                <hr>
+                <img class="w-full h-auto object-cover rounded-xl shadow-sm mb-4" src="{{ gambar_desa($desa['kantor_desa'], true) }}" alt="Kantor Desa">
             @endif
-            <div class="info-desa">
-                <table class="table-info">
-                    <tr>
-                        <td width="25%">Alamat</td>
-                        <td>:</td>
-                        <td width="70%">{{ $desa['alamat_kantor'] }}</td>
+            <div class="info-desa overflow-x-auto">
+                <table class="w-full text-xs text-slate-600 dark:text-slate-350 border-collapse">
+                    <tr class="border-b border-slate-100 dark:border-slate-800/60 last:border-0">
+                        <td class="py-2.5 font-bold w-1/4">Alamat</td>
+                        <td class="py-2.5 px-1">:</td>
+                        <td class="py-2.5 w-3/4">{{ $desa['alamat_kantor'] }}</td>
                     </tr>
-                    <tr>
-                        <td width="25%">{{ ucwords(setting('sebutan_desa')) . ' ' }}</td>
-                        <td>:</td>
-                        <td width="70%">{{ $desa['nama_desa'] }}</td>
+                    <tr class="border-b border-slate-100 dark:border-slate-800/60 last:border-0">
+                        <td class="py-2.5 font-bold w-1/4">{{ ucwords(setting('sebutan_desa')) }}</td>
+                        <td class="py-2.5 px-1">:</td>
+                        <td class="py-2.5 w-3/4">{{ $desa['nama_desa'] }}</td>
                     </tr>
-                    <tr>
-                        <td width="25%">{{ ucwords(setting('sebutan_kecamatan')) }}</td>
-                        <td>:</td>
-                        <td width="70%">{{ $desa['nama_kecamatan'] }}</td>
+                    <tr class="border-b border-slate-100 dark:border-slate-800/60 last:border-0">
+                        <td class="py-2.5 font-bold w-1/4">Kecamatan</td>
+                        <td class="py-2.5 px-1">:</td>
+                        <td class="py-2.5 w-3/4">{{ $desa['nama_kecamatan'] }}</td>
                     </tr>
-                    <tr>
-                        <td width="25%">{{ ucwords(setting('sebutan_kabupaten')) }}</td>
-                        <td>:</td>
-                        <td width="70%">{{ $desa['nama_kabupaten'] }}</td>
+                    <tr class="border-b border-slate-100 dark:border-slate-800/60 last:border-0">
+                        <td class="py-2.5 font-bold w-1/4">Kabupaten</td>
+                        <td class="py-2.5 px-1">:</td>
+                        <td class="py-2.5 w-3/4">{{ $desa['nama_kabupaten'] }}</td>
                     </tr>
-                    <tr>
-                        <td width="25%">Kodepos</td>
-                        <td>:</td>
-                        <td width="70%">{{ $desa['kode_pos'] }}</td>
+                    <tr class="border-b border-slate-100 dark:border-slate-800/60 last:border-0">
+                        <td class="py-2.5 font-bold w-1/4">Kodepos</td>
+                        <td class="py-2.5 px-1">:</td>
+                        <td class="py-2.5 w-3/4">{{ $desa['kode_pos'] }}</td>
                     </tr>
-                    <tr>
-                        <td width="25%">Telepon</td>
-                        <td>:</td>
-                        <td width="70%">{{ $desa['telepon'] }}</td>
+                    <tr class="border-b border-slate-100 dark:border-slate-800/60 last:border-0">
+                        <td class="py-2.5 font-bold w-1/4">Telepon</td>
+                        <td class="py-2.5 px-1">:</td>
+                        <td class="py-2.5 w-3/4">{{ $desa['telepon'] }}</td>
                     </tr>
-                    <tr>
-                        <td width="25%">Email</td>
-                        <td>:</td>
-                        <td width="70%">{{ $desa['email_desa'] }}</td>
+                    <tr class="border-b border-slate-100 dark:border-slate-800/60 last:border-0">
+                        <td class="py-2.5 font-bold w-1/4">Email</td>
+                        <td class="py-2.5 px-1">:</td>
+                        <td class="py-2.5 w-3/4">{{ $desa['email_desa'] }}</td>
                     </tr>
                 </table>
             </div>

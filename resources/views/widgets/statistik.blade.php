@@ -10,20 +10,39 @@
         $(function() {
             var chart_widget;
             $(document).ready(function() {
+                var isDark = document.documentElement.classList.contains('dark');
+                var textColor = isDark ? '#cbd5e1' : '#334155';
+                var gridLineColor = isDark ? '#334155' : '#e2e8f0';
+
                 // Build the chart
                 chart_widget = new Highcharts.Chart({
                     chart: {
                         renderTo: 'container_widget',
                         plotBackgroundColor: null,
                         plotBorderWidth: null,
-                        plotShadow: false
+                        plotShadow: false,
+                        backgroundColor: "rgba(0,0,0,0)"
                     },
                     title: {
-                        text: 'Jumlah Penduduk'
+                        text: 'Jumlah Penduduk',
+                        style: {
+                            color: textColor,
+                            fontSize: '14px',
+                            fontWeight: 'bold'
+                        }
                     },
                     yAxis: {
                         title: {
-                            text: 'Jumlah'
+                            text: 'Jumlah',
+                            style: {
+                                color: textColor
+                            }
+                        },
+                        gridLineColor: gridLineColor,
+                        labels: {
+                            style: {
+                                color: textColor
+                            }
                         }
                     },
                     xAxis: {
@@ -33,7 +52,12 @@
                                     ['{{ $data['jumlah'] }} <br> {{ $data['nama'] }}'],
                                 @endif
                             @endforeach
-                        ]
+                        ],
+                        labels: {
+                            style: {
+                                color: textColor
+                            }
+                        }
                     },
                     legend: {
                         enabled: false
