@@ -46,46 +46,46 @@
 </section>
 
 <!-- 2. SERVICES SECTION -->
-<section id="layanan" class="py-24 bg-slate-50 relative -mt-16 z-20">
+<section id="layanan" class="py-24 bg-slate-50 dark:bg-slate-950 relative -mt-16 z-20 transition-colors duration-300">
     <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px]">
-        <div class="bg-white/80 backdrop-blur-lg rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.06)] border border-slate-200/50 p-8 lg:p-12">
+        <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur-lg rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.06)] border border-slate-200/50 dark:border-slate-800/50 p-8 lg:p-12 transition-colors duration-300">
             <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 font-heading mb-3 tracking-wide">LAYANAN UNGGULAN</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-base">Akses cepat menuju berbagai layanan pemerintahan dan informasi publik desa.</p>
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 dark:text-slate-100 font-heading mb-3 tracking-wide">LAYANAN UNGGULAN</h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-sm md:text-base">Akses cepat menuju berbagai layanan pemerintahan and informasi publik desa.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 <!-- Layanan Mandiri -->
                 @if ((bool) setting('layanan_mandiri'))
-                <a href="{{ site_url('layanan-mandiri') }}" class="group flex gap-6 p-6 rounded-2xl bg-white hover:bg-primary-50/30 border border-slate-100 hover:border-primary-100 shadow-sm transition-all duration-300 hover:shadow-md glow-primary-hover">
-                    <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 transition-colors">
-                        <i class="fas fa-desktop text-2xl text-primary-600 group-hover:text-white transition-colors"></i>
+                <a href="{{ site_url('layanan-mandiri') }}" class="group flex gap-6 p-6 rounded-2xl bg-white dark:bg-slate-900/40 hover:bg-primary-50/30 dark:hover:bg-primary-950/20 border border-slate-100 dark:border-slate-800 hover:border-primary-100 dark:hover:border-primary-900 shadow-sm transition-all duration-300 hover:shadow-md glow-primary-hover">
+                    <div class="w-14 h-14 bg-primary-50 dark:bg-primary-950/40 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 transition-colors">
+                        <i class="fas fa-desktop text-2xl text-primary-600 dark:text-primary-400 group-hover:text-white transition-colors"></i>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold text-slate-800 font-heading mb-2">Layanan Mandiri</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed">Urus surat menyurat secara online tanpa harus antre di balai desa.</p>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Layanan Mandiri</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Urus surat menyurat secara online tanpa harus antre di balai desa.</p>
                     </div>
                 </a>
                 @endif
                 
                 <!-- Data Wilayah -->
-                <a href="{{ site_url('data-wilayah') }}" class="group flex gap-6 p-6 rounded-2xl bg-white hover:bg-teal-50/30 border border-slate-100 hover:border-teal-100 shadow-sm transition-all duration-300 hover:shadow-md glow-cyan-hover">
-                    <div class="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-teal-500 transition-colors">
-                        <i class="fas fa-map-marked-alt text-2xl text-teal-600 group-hover:text-white transition-colors"></i>
+                <a href="{{ site_url('data-wilayah') }}" class="group flex gap-6 p-6 rounded-2xl bg-white dark:bg-slate-900/40 hover:bg-teal-50/30 dark:hover:bg-teal-950/20 border border-slate-100 dark:border-slate-800 hover:border-teal-100 dark:hover:border-teal-900 shadow-sm transition-all duration-300 hover:shadow-md glow-cyan-hover">
+                    <div class="w-14 h-14 bg-teal-50 dark:bg-teal-950/40 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-teal-500 transition-colors">
+                        <i class="fas fa-map-marked-alt text-2xl text-teal-600 dark:text-teal-400 group-hover:text-white transition-colors"></i>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold text-slate-800 font-heading mb-2">Data Wilayah</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed">Statistik dan demografi kependudukan yang selalu diperbarui.</p>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Data Wilayah</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Statistik dan demografi kependudukan yang selalu diperbarui.</p>
                     </div>
                 </a>
 
                 <!-- Transparansi APBDes -->
-                <a href="{{ site_url('apbdesa') }}" class="group flex gap-6 p-6 rounded-2xl bg-white hover:bg-amber-50/30 border border-slate-100 hover:border-amber-100 shadow-sm transition-all duration-300 hover:shadow-md glow-primary-hover">
-                    <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500 transition-colors">
-                        <i class="fas fa-chart-pie text-2xl text-amber-500 group-hover:text-white transition-colors"></i>
+                <a href="{{ site_url('apbdesa') }}" class="group flex gap-6 p-6 rounded-2xl bg-white dark:bg-slate-900/40 hover:bg-amber-50/30 dark:hover:bg-amber-950/20 border border-slate-100 dark:border-slate-800 hover:border-amber-100 dark:hover:border-amber-900 shadow-sm transition-all duration-300 hover:shadow-md glow-primary-hover">
+                    <div class="w-14 h-14 bg-amber-50 dark:bg-amber-950/40 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500 transition-colors">
+                        <i class="fas fa-chart-pie text-2xl text-amber-500 dark:text-amber-400 group-hover:text-white transition-colors"></i>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold text-slate-800 font-heading mb-2">Transparansi</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed">Laporan APBDes dan rincian pembangunan desa yang terbuka.</p>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Transparansi</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Laporan APBDes dan rincian pembangunan desa yang terbuka.</p>
                     </div>
                 </a>
             </div>
@@ -136,35 +136,35 @@
 </section>
 
 <!-- 4. SPLIT CONTENT SECTION (VISI MISI) -->
-<section class="py-24 bg-white overflow-hidden">
+<section class="py-24 bg-white dark:bg-slate-900 overflow-hidden transition-colors duration-300">
     <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px]">
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="w-full lg:w-1/2">
-                <h2 class="text-4xl lg:text-6xl font-bold text-slate-800 font-heading mb-8 leading-tight uppercase tracking-wide">Mewujudkan Desa yang Maju, Sejahtera, dan Inovatif</h2>
-                <p class="text-slate-500 mb-10 leading-relaxed text-xl lg:text-2xl">
+                <h2 class="text-4xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100 font-heading mb-8 leading-tight uppercase tracking-wide">Mewujudkan Desa yang Maju, Sejahtera, dan Inovatif</h2>
+                <p class="text-slate-500 dark:text-slate-400 mb-10 leading-relaxed text-xl lg:text-2xl">
                     Kami terus berupaya meningkatkan kualitas pelayanan publik dan mendorong pembangunan yang berkelanjutan demi kesejahteraan seluruh masyarakat desa.
                 </p>
                 <div class="space-y-8 mb-12">
                     <div class="flex items-start gap-6">
-                        <div class="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center flex-shrink-0 text-primary-600 shadow-sm">
+                        <div class="w-16 h-16 rounded-2xl bg-primary-50 dark:bg-primary-950/30 flex items-center justify-center flex-shrink-0 text-primary-600 dark:text-primary-400 shadow-sm">
                             <i class="fas fa-check text-2xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-2xl font-bold text-slate-800 font-heading mb-2">Pelayanan Cepat</h4>
-                            <p class="text-slate-500 text-lg">Sistem digitalisasi mempermudah urusan administrasi.</p>
+                            <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Pelayanan Cepat</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-lg">Sistem digitalisasi mempermudah urusan administrasi.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-6">
-                        <div class="w-16 h-16 rounded-2xl bg-accent-50 flex items-center justify-center flex-shrink-0 text-accent-600 shadow-sm">
+                        <div class="w-16 h-16 rounded-2xl bg-accent-50 dark:bg-accent-950/30 flex items-center justify-center flex-shrink-0 text-accent-600 dark:text-accent-400 shadow-sm">
                             <i class="fas fa-leaf text-2xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-2xl font-bold text-slate-800 font-heading mb-2">Pemberdayaan Ekonomi</h4>
-                            <p class="text-slate-500 text-lg">Mendukung UMKM lokal dan pertanian presisi.</p>
+                            <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Pemberdayaan Ekonomi</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-lg">Mendukung UMKM lokal dan pertanian presisi.</p>
                         </div>
                     </div>
                 </div>
-                <a href="{{ site_url('profil/visi-misi') }}" class="inline-block border-2 border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white font-bold px-10 py-4 text-xl rounded-full transition-all duration-300 uppercase tracking-wider">
+                <a href="{{ site_url('profil/visi-misi') }}" class="inline-block border-2 border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 hover:bg-slate-800 dark:hover:bg-slate-200 hover:text-white dark:hover:text-slate-900 font-bold px-10 py-4 text-xl rounded-full transition-all duration-300 uppercase tracking-wider">
                     BACA VISI MISI
                 </a>
             </div>
@@ -182,11 +182,11 @@
 </section>
 
 <!-- 5. LATEST BLOG SECTION -->
-<section class="py-24 bg-slate-50">
+<section class="py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
     <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px]">
         <div class="text-center mb-20">
-            <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 font-heading mb-6 uppercase tracking-wide">Kabar Terbaru</h2>
-            <p class="text-slate-500 max-w-3xl mx-auto text-xl lg:text-2xl">Pantau terus perkembangan, kegiatan, dan program-program terbaru dari balai desa kami.</p>
+            <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-100 font-heading mb-6 uppercase tracking-wide">Kabar Terbaru</h2>
+            <p class="text-slate-500 dark:text-slate-400 max-w-3xl mx-auto text-xl lg:text-2xl">Pantau terus perkembangan, kegiatan, dan program-program terbaru dari balai desa kami.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -201,14 +201,14 @@
 
             @if (!empty($displayArticles))
                 @foreach ($displayArticles as $post)
-                    <article class="bg-white rounded-2xl border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden group hover:-translate-y-2 hover:shadow-soft hover:border-slate-200 transition-all duration-300">
+                    <article class="bg-white dark:bg-slate-900/40 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden group hover:-translate-y-2 hover:shadow-soft hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-300">
                         <!-- Image -->
                         <div class="relative h-56 overflow-hidden">
                             @if (is_file(LOKASI_FOTO_ARTIKEL . 'kecil_' . $post['gambar']))
                                 <img src="{{ AmbilFotoArtikel($post['gambar'], 'sedang') }}" alt="{{ $post['judul'] }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                             @else
-                                <div class="w-full h-full bg-slate-100 flex items-center justify-center">
-                                    <i class="fas fa-image text-4xl text-slate-300"></i>
+                                <div class="w-full h-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center">
+                                    <i class="fas fa-image text-4xl text-slate-300 dark:text-slate-700"></i>
                                 </div>
                             @endif
                             @if (isset($post['kategori']))
@@ -220,19 +220,19 @@
                         
                         <!-- Content -->
                         <div class="p-6 lg:p-8">
-                            <div class="flex items-center gap-4 text-sm lg:text-base text-slate-500 font-medium mb-4">
+                            <div class="flex items-center gap-4 text-sm lg:text-base text-slate-500 dark:text-slate-400 font-medium mb-4">
                                 <span class="flex items-center gap-1.5"><i class="far fa-calendar"></i> {{ tgl_indo($post['tgl_upload'] ?? date('Y-m-d')) }}</span>
                                 <span class="flex items-center gap-1.5"><i class="far fa-user"></i> {{ $post['owner'] ?? 'Admin' }}</span>
                             </div>
-                            <h3 class="text-2xl lg:text-3xl font-black text-slate-800 font-heading leading-tight mb-4 group-hover:text-primary-600 transition-colors line-clamp-2 uppercase tracking-wide">
+                            <h3 class="text-2xl lg:text-3xl font-black text-slate-800 dark:text-slate-200 font-heading leading-tight mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2 uppercase tracking-wide">
                                 <a href="{{ isset($post['url_slug']) ? $post['url_slug'] : site_url('artikel/' . ($post['slug'] ?? '')) }}" class="before:absolute before:inset-0">
                                     {{ $post['judul'] }}
                                 </a>
                             </h3>
-                            <p class="text-slate-600 text-base lg:text-lg line-clamp-3 mb-8 leading-relaxed">
+                            <p class="text-slate-600 dark:text-slate-400 text-base lg:text-lg line-clamp-3 mb-8 leading-relaxed">
                                 {{ potong_teks($post['isi'] ?? '', 120) }}...
                             </p>
-                            <span class="text-primary-600 font-bold text-base uppercase tracking-widest group-hover:text-accent-500 transition-colors flex items-center gap-2">
+                            <span class="text-primary-600 dark:text-primary-400 font-bold text-base uppercase tracking-widest group-hover:text-accent-500 transition-colors flex items-center gap-2">
                                 Baca Selengkapnya <i class="fas fa-arrow-right transition-transform group-hover:translate-x-2"></i>
                             </span>
                         </div>
@@ -240,13 +240,13 @@
                 @endforeach
             @else
                 <div class="col-span-full py-12 text-center">
-                    <p class="text-slate-500">Belum ada artikel terbaru.</p>
+                    <p class="text-slate-500 dark:text-slate-400">Belum ada artikel terbaru.</p>
                 </div>
             @endif
         </div>
         
         <div class="mt-16 text-center">
-            <a href="{{ site_url('arsip') }}" class="inline-block border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-bold px-10 py-4 text-xl rounded-full transition-all duration-300 uppercase tracking-wider">
+            <a href="{{ site_url('arsip') }}" class="inline-block border-2 border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-600 hover:text-white dark:hover:text-slate-900 font-bold px-10 py-4 text-xl rounded-full transition-all duration-300 uppercase tracking-wider">
                 LIHAT SEMUA BERITA
             </a>
         </div>
@@ -258,24 +258,24 @@
     $aparatur_desa = \App\Models\Pamong::where('pamong_status', 1)->get();
 @endphp
 @if ($aparatur_desa && count($aparatur_desa) > 0)
-<section class="py-24 bg-white">
+<section class="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
     <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px]">
         <div class="text-center mb-20">
-            <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 font-heading mb-6 uppercase tracking-wide">Aparatur Desa</h2>
-            <p class="text-slate-500 max-w-3xl mx-auto text-xl lg:text-2xl">Kami siap melayani masyarakat dengan sepenuh hati.</p>
+            <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-100 font-heading mb-6 uppercase tracking-wide">Aparatur Desa</h2>
+            <p class="text-slate-500 dark:text-slate-400 max-w-3xl mx-auto text-xl lg:text-2xl">Kami siap melayani masyarakat dengan sepenuh hati.</p>
         </div>
         
         <div class="aparatur-carousel -mx-4">
             @foreach ($aparatur_desa as $aparatur)
                 <div class="text-center group px-4">
-                    <div class="relative w-48 h-48 lg:w-56 lg:h-56 mx-auto mb-8 rounded-3xl overflow-hidden shadow-xl border-8 border-white group-hover:border-primary-500/30 group-hover:shadow-glow-primary transition-all duration-300">
+                    <div class="relative w-48 h-48 lg:w-56 lg:h-56 mx-auto mb-8 rounded-3xl overflow-hidden shadow-xl border-8 border-white dark:border-slate-850 group-hover:border-primary-500/30 group-hover:shadow-glow-primary transition-all duration-300">
                         @php
                             $fotoUrl = AmbilFoto($aparatur->foto_staff, '', $aparatur->penduduk ? $aparatur->penduduk->sex : '1');
                         @endphp
                         <img src="{{ $fotoUrl }}" onerror="this.src='{{ base_url('assets/images/pengguna/kuser.png') }}'" alt="{{ $aparatur->pamong_nama }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <h4 class="text-2xl font-bold text-slate-800 font-heading mb-2 uppercase tracking-wide">{{ $aparatur->pamong_nama }}</h4>
-                    <p class="text-primary-600 font-bold text-lg lg:text-xl">{{ is_object($aparatur->jabatan) ? $aparatur->jabatan->nama : $aparatur->jabatan }}</p>
+                    <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-200 font-heading mb-2 uppercase tracking-wide">{{ $aparatur->pamong_nama }}</h4>
+                    <p class="text-primary-600 dark:text-primary-400 font-bold text-lg lg:text-xl">{{ is_object($aparatur->jabatan) ? $aparatur->jabatan->nama : $aparatur->jabatan }}</p>
                 </div>
             @endforeach
         </div>

@@ -4,7 +4,7 @@
 
 @section('layout')
     <!-- Halaman Konten & Sidebar -->
-    <div class="min-h-full bg-[#f9fcff] pb-20">
+    <div class="min-h-full bg-[#f9fcff] dark:bg-slate-950 pb-20 transition-colors duration-300">
         <!-- START SECTION TOP -->
         <section class="w-full py-12 md:py-20 lg:py-24 relative overflow-hidden" style="background-image: url('{{ theme_asset('img/bg/section-top.png') }}'); background-size: cover; background-position: center center;">
             <!-- Dark Tint and Gradient Overlay -->
