@@ -67,9 +67,13 @@
             </div>
         @endif
         
-        @if (theme_config('iklan_artikel_atas'))
+        @php
+            $iklan_atas = theme_config('iklan_artikel_atas');
+            $iklan_atas_clean = trim(preg_replace('/<!--(.*?)-->/s', '', $iklan_atas));
+        @endphp
+        @if (!empty($iklan_atas_clean))
             <div class="w-full flex justify-center my-6 overflow-hidden adsense-article-top">
-                {!! theme_config('iklan_artikel_atas') !!}
+                {!! $iklan_atas !!}
             </div>
         @endif
         
@@ -82,9 +86,13 @@
             @endif
         </div>
 
-        @if (theme_config('iklan_artikel_bawah'))
+        @php
+            $iklan_bawah = theme_config('iklan_artikel_bawah');
+            $iklan_bawah_clean = trim(preg_replace('/<!--(.*?)-->/s', '', $iklan_bawah));
+        @endphp
+        @if (!empty($iklan_bawah_clean))
             <div class="w-full flex justify-center my-6 overflow-hidden adsense-article-bottom">
-                {!! theme_config('iklan_artikel_bawah') !!}
+                {!! $iklan_bawah !!}
             </div>
         @endif
         

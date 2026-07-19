@@ -8,11 +8,15 @@
     @endif
 
     <!-- Iklan Sidebar -->
-    @if (theme_config('iklan_sidebar'))
+    @php
+        $iklan_sidebar = theme_config('iklan_sidebar');
+        $iklan_sidebar_clean = trim(preg_replace('/<!--(.*?)-->/s', '', $iklan_sidebar));
+    @endphp
+    @if (!empty($iklan_sidebar_clean))
         <div class="bg-white/80 backdrop-blur-lg p-6 rounded-2xl border border-slate-200/50 border-t-[3px] border-t-primary-600 shadow-soft mb-6 hover:shadow-medium transition-all duration-300 flex flex-col items-center">
             <h4 class="border-b border-slate-100 text-slate-800 text-[18px] font-heading font-extrabold mb-[15px] pb-[10px] w-full capitalize tracking-wider">Sponsor</h4>
             <div class="w-full flex justify-center overflow-hidden adsense-sidebar-container">
-                {!! theme_config('iklan_sidebar') !!}
+                {!! $iklan_sidebar !!}
             </div>
         </div>
     @endif

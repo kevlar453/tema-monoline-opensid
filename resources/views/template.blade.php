@@ -176,10 +176,14 @@
             @include('theme::partials.menu_head')
         </nav>
 
-        @if (theme_config('iklan_header'))
+        @php
+            $iklan_header = theme_config('iklan_header');
+            $iklan_header_clean = trim(preg_replace('/<!--(.*?)-->/s', '', $iklan_header));
+        @endphp
+        @if (!empty($iklan_header_clean))
             <div class="container mx-auto px-4 mt-6 max-w-[1200px] flex justify-center">
                 <div class="w-full overflow-hidden flex justify-center py-2 bg-white rounded-xl border border-gray-200 shadow-sm adsense-header-container">
-                    {!! theme_config('iklan_header') !!}
+                    {!! $iklan_header !!}
                 </div>
             </div>
         @endif

@@ -36,9 +36,13 @@
 </style>
 
 <!-- widget Peta Lokasi Kantor Desa -->
+@php
+    $uniqId = rand(10000, 99999);
+    $mapCanvasId = 'map_canvas_' . $uniqId;
+@endphp
 <div class="w-full">
     <div class="box-body">
-        <div id="map_canvas" style="height:200px;"></div>
+        <div id="{{ $mapCanvasId }}" style="height:200px;"></div>
         <button class="btn btn-success btn-block">
             <a href="https://www.openstreetmap.org/#map=15/{{ $data_config['lat'] }}/{{ $data_config['lng'] }}" style="color:#fff;" rel="noopener noreferrer" target="_blank">Buka Peta</a>
         </button>
@@ -97,32 +101,34 @@
 </div>
 
 <script>
-    //Jika posisi kantor desa belum ada, maka posisi peta akan menampilkan seluruh Indonesia
-    @if (!empty($data_config['lat']) && !empty($data_config['lng']))
-        var posisi = [{{ $data_config['lat'] }}, {{ $data_config['lng'] }}];
-        var zoom = {{ $data_config['zoom'] ?: 10 }};
-    @else
-        var posisi = [-1.0546279422758742, 116.71875000000001];
-        var zoom = 10;
-    @endif
+    {
+        //Jika posisi kantor desa belum ada, maka posisi peta akan menampilkan seluruh Indonesia
+        @if (!empty($data_config['lat']) && !empty($data_config['lng']))
+            let posisi = [{{ $data_config['lat'] }}, {{ $data_config['lng'] }}];
+            let zoom = {{ $data_config['zoom'] ?: 10 }};
+        @else
+            let posisi = [-1.0546279422758742, 116.71875000000001];
+            let zoom = 10;
+        @endif
 
-    var options = {
-        maxZoom: {{ setting('max_zoom_peta') }},
-        minZoom: {{ setting('min_zoom_peta') }},
-    };
+        let options = {
+            maxZoom: {{ setting('max_zoom_peta') }},
+            minZoom: {{ setting('min_zoom_peta') }},
+        };
 
-    var lokasi_kantor = L.map('map_canvas', options).setView(posisi, zoom);
+        let lokasi_kantor = L.map('{{ $mapCanvasId }}', options).setView(posisi, zoom);
 
-    //Menampilkan BaseLayers Peta
-    var baseLayers = getBaseLayers(lokasi_kantor, "{{ setting('mapbox_key') }}", "{{ setting('jenis_peta') }}");
+        //Menampilkan BaseLayers Peta
+        let baseLayers = getBaseLayers(lokasi_kantor, "{{ setting('mapbox_key') }}", "{{ setting('jenis_peta') }}");
 
-    L.control.layers(baseLayers, null, {
-        position: 'topright',
-        collapsed: true
-    }).addTo(lokasi_kantor);
+        L.control.layers(baseLayers, null, {
+            position: 'topright',
+            collapsed: true
+        }).addTo(lokasi_kantor);
 
-    //Jika posisi kantor desa belum ada, maka posisi peta akan menampilkan seluruh Indonesia
-    @if (!empty($data_config['lat']) && !empty($data_config['lng']))
-        var kantor_desa = L.marker(posisi).addTo(lokasi_kantor);
-    @endif
+        //Jika posisi kantor desa belum ada, maka posisi peta akan menampilkan seluruh Indonesia
+        @if (!empty($data_config['lat']) && !empty($data_config['lng']))
+            let kantor_desa = L.marker(posisi).addTo(lokasi_kantor);
+        @endif
+    }
 </script>
