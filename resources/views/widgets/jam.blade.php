@@ -10,9 +10,9 @@
         @endfor
         
         <!-- Hands -->
-        <div id="hour-hand" class="absolute w-1.5 h-11 bg-slate-800 dark:bg-slate-200 rounded-full origin-bottom" style="bottom: 50%; transform: rotate(0deg); transition: transform 0.05s cubic-bezier(0.4, 2.08, 0.55, 0.44);"></div>
-        <div id="min-hand" class="absolute w-1 h-15 bg-slate-500 dark:bg-slate-400 rounded-full origin-bottom" style="bottom: 50%; transform: rotate(0deg); transition: transform 0.05s cubic-bezier(0.4, 2.08, 0.55, 0.44);"></div>
-        <div id="sec-hand" class="absolute w-0.5 h-17 bg-rose-500 dark:bg-rose-400 rounded-full origin-bottom" style="bottom: 50%; transform: rotate(0deg); transition: transform 0.05s cubic-bezier(0.4, 2.08, 0.55, 0.44);"></div>
+        <div id="hour-hand" class="absolute w-1.5 h-12 bg-slate-800 dark:bg-slate-200 rounded-full origin-bottom left-[calc(50%-3px)]" style="bottom: 50%; transform: rotate(0deg); transition: transform 0.05s cubic-bezier(0.4, 2.08, 0.55, 0.44);"></div>
+        <div id="min-hand" class="absolute w-1 h-16 bg-slate-500 dark:bg-slate-400 rounded-full origin-bottom left-[calc(50%-2px)]" style="bottom: 50%; transform: rotate(0deg); transition: transform 0.05s cubic-bezier(0.4, 2.08, 0.55, 0.44);"></div>
+        <div id="sec-hand" class="absolute w-0.5 h-20 bg-rose-500 dark:bg-rose-400 rounded-full origin-bottom left-[calc(50%-1px)]" style="bottom: 50%; transform: rotate(0deg); transition: transform 0.05s cubic-bezier(0.4, 2.08, 0.55, 0.44);"></div>
         
         <!-- Center Dot -->
         <div class="absolute w-3.5 h-3.5 bg-slate-800 dark:bg-white rounded-full z-20 border-2 border-white dark:border-slate-900 shadow-md"></div>
