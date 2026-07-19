@@ -23,7 +23,7 @@
     $perempuan = \App\Models\PendudukHidup::where('sex', 2)->count();
     $totKeluarga = \App\Models\Keluarga::count();
 @endphp
-<<section class="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center pt-20" style="background-image: url('{{ $heroImage }}'); background-size: cover; background-position: center;">
+<section class="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center pt-20" style="background-image: url('{{ $heroImage }}'); background-size: cover; background-position: center;">
     <div class="absolute inset-0 bg-slate-950/70 mix-blend-multiply"></div>
     <!-- Glowing background nodes -->
     <div class="absolute w-[30vw] h-[30vw] bg-primary-600/10 blur-[120px] rounded-full top-1/4 left-1/4"></div>
