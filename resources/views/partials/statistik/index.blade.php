@@ -62,41 +62,41 @@
         </div>
     </div>
 
-    <div class="bg-white rounded-xl shadow-md border border-slate-100 overflow-hidden mb-8">
-        <div class="p-6 border-b border-slate-100">
-            <h2 class="text-xl font-bold text-slate-800 font-heading">Tabel {{ $heading }}</h2>
+    <div class="bg-white dark:bg-slate-900/60 rounded-xl shadow-md border border-slate-100 dark:border-slate-800/80 overflow-hidden mb-8 transition-colors duration-300">
+        <div class="p-6 border-b border-slate-100 dark:border-slate-800/60">
+            <h2 class="text-xl font-bold text-slate-800 dark:text-white font-heading">Tabel {{ $heading }}</h2>
         </div>
         <div class="p-0 overflow-x-auto">
-            <table class="min-w-full divide-y divide-slate-200" id="table-statistik">
-                <thead class="bg-slate-50">
+            <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-800" id="table-statistik">
+                <thead class="bg-slate-50 dark:bg-slate-950/40">
                     <tr>
-                        <th rowspan="2" class="px-4 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider border-b border-r border-slate-200">Kode</th>
-                        <th rowspan="2" class="px-4 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider border-b border-r border-slate-200">Kelompok</th>
-                        <th colspan="2" class="px-4 py-3 text-center text-xs font-medium text-slate-500 uppercase tracking-wider border-b border-r border-slate-200">Jumlah</th>
-                        <th colspan="2" class="px-4 py-3 text-center text-xs font-medium text-slate-500 uppercase tracking-wider border-b border-r border-slate-200">Laki-laki</th>
-                        <th colspan="2" class="px-4 py-3 text-center text-xs font-medium text-slate-500 uppercase tracking-wider border-b border-slate-200">Perempuan</th>
+                        <th rowspan="2" class="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-r border-slate-200 dark:border-slate-800">Kode</th>
+                        <th rowspan="2" class="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-r border-slate-200 dark:border-slate-800">Kelompok</th>
+                        <th colspan="2" class="px-4 py-3 text-center text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-r border-slate-200 dark:border-slate-800">Jumlah</th>
+                        <th colspan="2" class="px-4 py-3 text-center text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-r border-slate-200 dark:border-slate-800">Laki-laki</th>
+                        <th colspan="2" class="px-4 py-3 text-center text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-800">Perempuan</th>
                     </tr>
                     <tr>
-                        <th class="px-4 py-2 text-right text-xs font-medium text-slate-500 border-b border-r border-slate-200">n</th>
-                        <th class="px-4 py-2 text-right text-xs font-medium text-slate-500 border-b border-r border-slate-200">%</th>
-                        <th class="px-4 py-2 text-right text-xs font-medium text-slate-500 border-b border-r border-slate-200">n</th>
-                        <th class="px-4 py-2 text-right text-xs font-medium text-slate-500 border-b border-r border-slate-200">%</th>
-                        <th class="px-4 py-2 text-right text-xs font-medium text-slate-500 border-b border-r border-slate-200">n</th>
-                        <th class="px-4 py-2 text-right text-xs font-medium text-slate-500 border-b border-slate-200">%</th>
+                        <th class="px-4 py-2 text-right text-xs font-semibold text-slate-500 dark:text-slate-400 border-b border-r border-slate-200 dark:border-slate-800">n</th>
+                        <th class="px-4 py-2 text-right text-xs font-semibold text-slate-500 dark:text-slate-400 border-b border-r border-slate-200 dark:border-slate-800">%</th>
+                        <th class="px-4 py-2 text-right text-xs font-semibold text-slate-500 dark:text-slate-400 border-b border-r border-slate-200 dark:border-slate-800">n</th>
+                        <th class="px-4 py-2 text-right text-xs font-semibold text-slate-500 dark:text-slate-400 border-b border-r border-slate-200 dark:border-slate-800">%</th>
+                        <th class="px-4 py-2 text-right text-xs font-semibold text-slate-500 dark:text-slate-400 border-b border-r border-slate-200 dark:border-slate-800">n</th>
+                        <th class="px-4 py-2 text-right text-xs font-semibold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">%</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-slate-200 text-sm text-slate-700">
+                <tbody class="bg-white dark:bg-slate-900/30 divide-y divide-slate-200 dark:divide-slate-800 text-sm text-slate-700 dark:text-slate-350">
                     <!-- Data loaded via JS -->
                 </tbody>
             </table>
         </div>
-        <div class="p-6 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
-            <p class="text-xs text-red-500 font-medium m-0">
+        <div class="p-6 bg-slate-50 dark:bg-slate-950/20 border-t border-slate-100 dark:border-slate-800/60 flex flex-wrap items-center justify-between gap-4">
+            <p class="text-xs text-red-500 dark:text-rose-400 font-medium m-0">
                 Diperbarui pada: {{ tgl_indo($last_update) }}
             </p>
             <div class="flex items-center gap-3">
-                <button class="px-4 py-2 text-sm font-medium rounded-md bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors shadow-sm" id="showData">Selengkapnya...</button>
-                <button id="tampilkan" onclick="toggle_tampilkan();" class="px-4 py-2 text-sm font-medium rounded-md bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors shadow-sm">Tampilkan Nol</button>
+                <button class="px-4 py-2 text-sm font-medium rounded-md bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm" id="showData">Selengkapnya...</button>
+                <button id="tampilkan" onclick="toggle_tampilkan();" class="px-4 py-2 text-sm font-medium rounded-md bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm">Tampilkan Nol</button>
             </div>
         </div>
     </div>

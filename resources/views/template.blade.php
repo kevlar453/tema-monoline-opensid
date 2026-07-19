@@ -172,7 +172,9 @@
 
         /* Dark Mode table styles */
         .dark table,
-        .dark .table {
+        .dark .table,
+        .dark table tbody,
+        .dark .table tbody {
             background-color: #0f172a !important;
             color: #cbd5e1 !important;
             border-color: #334155 !important;
@@ -186,6 +188,11 @@
             border-color: #334155 !important;
         }
 
+        .dark table tr,
+        .dark .table tr {
+            background-color: transparent !important;
+        }
+
         .dark table thead th,
         .dark table thead td,
         .dark .table thead th,
@@ -196,12 +203,14 @@
         }
 
         /* Zebra striping for dark mode tables */
+        .dark tbody tr:nth-of-type(odd),
         .dark .table-striped tbody tr:nth-of-type(odd),
         .dark table.table-striped tbody tr:nth-of-type(odd),
         .dark tr.odd {
-            background-color: rgba(30, 41, 59, 0.4) !important;
+            background-color: rgba(30, 41, 59, 0.45) !important;
         }
 
+        .dark tbody tr:nth-of-type(even),
         .dark .table-striped tbody tr:nth-of-type(even),
         .dark table.table-striped tbody tr:nth-of-type(even),
         .dark tr.even {
