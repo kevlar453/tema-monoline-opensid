@@ -4,7 +4,7 @@
     <!-- Header Spacing -->
     <div class="h-20 bg-slate-900/10"></div>
 
-    <div class="min-h-screen bg-[#f9fcff] py-12">
+    <div class="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 transition-colors duration-300">
         <div class="container mx-auto px-4 max-w-[1200px]">
             @if (!empty($data_widget))
                 @include('theme::partials.apbdesa-tema')
