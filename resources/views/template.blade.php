@@ -153,6 +153,22 @@
         .dark .cyber-radial {
             background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.02) 0%, transparent 80%);
         }
+
+        /* Force rich-text content text tags to inherit color in dark mode to override inline editor styles */
+        .dark .prose span,
+        .dark .prose p,
+        .dark .prose li,
+        .dark .prose font,
+        .dark .prose strong,
+        .dark .prose em,
+        .dark .prose h1,
+        .dark .prose h2,
+        .dark .prose h3,
+        .dark .prose h4,
+        .dark .prose h5,
+        .dark .prose h6 {
+            color: inherit !important;
+        }
     </style>
 </head>
 
