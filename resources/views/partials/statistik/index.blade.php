@@ -47,10 +47,10 @@
             <div class="flex flex-wrap gap-2 justify-end mb-6">
                 <button class="px-4 py-2 text-sm font-medium rounded-md transition-colors {{ ($default_chart_type ?? 'pie') == 'pie' ? 'bg-accent-500 text-white hover:bg-accent-600' : 'bg-slate-100 text-slate-700 hover:bg-slate-200' }}" onclick="switchType(this);">Bar Graph</button>
                 <button class="px-4 py-2 text-sm font-medium rounded-md transition-colors {{ ($default_chart_type ?? 'pie') == 'column' ? 'bg-accent-500 text-white hover:bg-accent-600' : 'bg-slate-100 text-slate-700 hover:bg-slate-200' }}" onclick="switchType(this);">Pie Chart</button>
-                <a href="{{ ci_route(" data-statistik.{$slug_aktif}.cetak.cetak") }}?tahun={{ $selected_tahun }}" class="px-4 py-2 text-sm font-medium rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors inline-flex items-center gap-2" title="Cetak Laporan" target="_blank">
+                <a href="{{ ci_route("data-statistik.{$slug_aktif}.cetak.cetak") }}?tahun={{ $selected_tahun }}" class="px-4 py-2 text-sm font-medium rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors inline-flex items-center gap-2" title="Cetak Laporan" target="_blank">
                     <i class="fa fa-print"></i> Cetak
                 </a>
-                <a href="{{ ci_route(" data-statistik.{$slug_aktif}.cetak.unduh") }}?tahun={{ $selected_tahun }}" class="px-4 py-2 text-sm font-medium rounded-md bg-green-500 text-white hover:bg-green-600 transition-colors inline-flex items-center gap-2" title="Unduh Laporan" target="_blank">
+                <a href="{{ ci_route("data-statistik.{$slug_aktif}.cetak.unduh") }}?tahun={{ $selected_tahun }}" class="px-4 py-2 text-sm font-medium rounded-md bg-green-500 text-white hover:bg-green-600 transition-colors inline-flex items-center gap-2" title="Unduh Laporan" target="_blank">
                     <i class="fa fa-download"></i> Unduh
                 </a>
             </div>
