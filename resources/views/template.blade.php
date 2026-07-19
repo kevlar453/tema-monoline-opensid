@@ -169,6 +169,110 @@
         .dark .prose h6 {
             color: inherit !important;
         }
+
+        /* Dark Mode table styles */
+        .dark table,
+        .dark .table {
+            background-color: #0f172a !important;
+            color: #cbd5e1 !important;
+            border-color: #334155 !important;
+        }
+
+        .dark table th,
+        .dark table td,
+        .dark .table th,
+        .dark .table td {
+            color: #cbd5e1 !important;
+            border-color: #334155 !important;
+        }
+
+        .dark table thead th,
+        .dark table thead td,
+        .dark .table thead th,
+        .dark .table thead td {
+            background-color: #1e293b !important;
+            color: #f8fafc !important;
+            border-color: #475569 !important;
+        }
+
+        /* Zebra striping for dark mode tables */
+        .dark .table-striped tbody tr:nth-of-type(odd),
+        .dark table.table-striped tbody tr:nth-of-type(odd),
+        .dark tr.odd {
+            background-color: rgba(30, 41, 59, 0.4) !important;
+        }
+
+        .dark .table-striped tbody tr:nth-of-type(even),
+        .dark table.table-striped tbody tr:nth-of-type(even),
+        .dark tr.even {
+            background-color: #0f172a !important;
+        }
+
+        /* Hover effect for rows in dark mode */
+        .dark .table-hover tbody tr:hover,
+        .dark table tbody tr:hover {
+            background-color: rgba(30, 41, 59, 0.8) !important;
+            color: #ffffff !important;
+        }
+
+        /* Link colors inside tables in dark mode */
+        .dark table td a,
+        .dark .table td a {
+            color: #38bdf8 !important;
+            text-decoration: none;
+        }
+
+        .dark table td a:hover,
+        .dark .table td a:hover {
+            color: #0ea5e9 !important;
+            text-decoration: underline;
+        }
+
+        /* DataTables length/search controls in dark mode */
+        .dark .dataTables_wrapper,
+        .dark .dataTables_info,
+        .dark .dataTables_length,
+        .dark .dataTables_filter,
+        .dark .dataTables_paginate {
+            color: #94a3b8 !important;
+        }
+
+        .dark .dataTables_wrapper select,
+        .dark .dataTables_wrapper input {
+            background-color: #1e293b !important;
+            color: #f1f5f9 !important;
+            border: 1px solid #475569 !important;
+            border-radius: 6px !important;
+            padding: 4px 8px !important;
+            outline: none !important;
+        }
+
+        .dark .dataTables_wrapper select:focus,
+        .dark .dataTables_wrapper input:focus {
+            border-color: #38bdf8 !important;
+        }
+
+        /* DataTables pagination buttons in dark mode */
+        .dark .dataTables_paginate .paginate_button {
+            color: #94a3b8 !important;
+            border: 1px solid transparent !important;
+            background: transparent !important;
+        }
+
+        .dark .dataTables_paginate .paginate_button.current,
+        .dark .dataTables_paginate .paginate_button.current:hover {
+            color: #ffffff !important;
+            background-color: #0284c7 !important;
+            border-color: #0284c7 !important;
+            border-radius: 6px !important;
+        }
+
+        .dark .dataTables_paginate .paginate_button:hover {
+            color: #ffffff !important;
+            background-color: #1e293b !important;
+            border-color: #475569 !important;
+            border-radius: 6px !important;
+        }
     </style>
 </head>
 
