@@ -48,10 +48,19 @@
         @else
             <span class="cycle-pager"></span>
         @endif
+        @includeIf('theme::partials.holiday_helper')
+        @php
+            $todayHoliday = null;
+            if (class_exists('HolidayHelper')) {
+                $todayHoliday = HolidayHelper::getTodayHoliday();
+            }
+        @endphp
         @foreach ($aparatur_desa['daftar_perangkat'] as $data)
             @php
                 $desc = "<span class='cycle-overlay-title'>" . $data['nama'] . '</span>';
-                if ($data['kehadiran'] == 1) {
+                if ($todayHoliday) {
+                    $desc .= "<span class='label label-warning' style='background-color: #d97706 !important;'>Libur</span>";
+                } elseif ($data['kehadiran'] == 1) {
                     $desc .=
                         "<span class='label label-success'>" .
                         ($data['status_kehadiran'] == 'hadir' ? 'Hadir' : '') .

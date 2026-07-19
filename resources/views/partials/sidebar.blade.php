@@ -67,6 +67,54 @@
             </li>
         </ul>
     </div>
+
+    <!-- Hari Libur Nasional Widget -->
+    @includeIf('theme::partials.holiday_helper')
+    @php
+        $upcomingHolidays = [];
+        if (class_exists('HolidayHelper')) {
+            $allHolidays = HolidayHelper::getHolidays(date('Y'));
+            $today = date('Y-m-d');
+            // Filter future holidays
+            $futureHolidays = array_filter($allHolidays, function($h) use ($today) {
+                return $h['date'] >= $today;
+            });
+            // Take the next 5 holidays
+            $upcomingHolidays = array_slice($futureHolidays, 0, 5);
+        }
+    @endphp
+    @if (!empty($upcomingHolidays))
+        <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur-lg p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800 border-t-[3px] border-t-primary-600 dark:border-t-primary-500 shadow-soft mb-6 hover:shadow-medium transition-all duration-300">
+            <h4 class="text-[17px] font-heading font-extrabold mb-[18px] pb-[10px] capitalize tracking-wider text-slate-800 dark:text-white relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[3px] after:bg-primary-500 border-b border-slate-100 dark:border-slate-800/40">Libur Nasional</h4>
+            <div class="divide-y divide-slate-100 dark:divide-slate-800/60">
+                @foreach ($upcomingHolidays as $h)
+                    @php
+                        $holidayDate = new DateTime($h['date']);
+                        $now = new DateTime();
+                        $diff = $now->diff($holidayDate)->days;
+                        
+                        $daysLeftText = '';
+                        if ($h['date'] === date('Y-m-d')) {
+                            $daysLeftText = 'Hari Ini';
+                        } elseif ($diff === 0) {
+                            $daysLeftText = 'Besok';
+                        } else {
+                            $daysLeftText = ($diff + 1) . ' Hari Lagi';
+                        }
+                    @endphp
+                    <div class="py-3 flex items-start justify-between gap-3 first:pt-1 last:pb-1 hover:bg-slate-50/50 dark:hover:bg-slate-900/20 px-1 rounded-xl transition-colors duration-200">
+                        <div class="min-w-0 flex-1">
+                            <h5 class="text-xs font-bold text-slate-800 dark:text-slate-200 leading-snug line-clamp-2">{{ $h['name'] }}</h5>
+                            <span class="text-[10px] font-semibold text-slate-400 dark:text-slate-500 mt-1 block">{{ tgl_indo($h['date']) }}</span>
+                        </div>
+                        <span class="bg-primary-50 dark:bg-primary-950/40 text-primary-600 dark:text-primary-400 text-[10px] font-extrabold px-2.5 py-1 rounded-full whitespace-nowrap shadow-sm border border-primary-100/50 dark:border-primary-900/30">
+                            {{ $daysLeftText }}
+                        </span>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
 </div>
 
 <script>

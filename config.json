@@ -188,5 +188,14 @@
             "class": "form-control input-sm",
             "rows": "4"
         }
+    },
+    {
+        "judul": "API Key api.co.id",
+        "key": "api_co_id_key",
+        "value": "",
+        "type": "text",
+        "placeholder": "sk-...",
+        "keterangan": "API Key (x-api-co-id) untuk mengakses API Hari Libur Nasional di api.co.id. Kosongkan untuk menggunakan fallback API gratis.",
+        "readonly": false
     }
 ]

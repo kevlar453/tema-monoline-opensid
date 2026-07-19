@@ -173,6 +173,20 @@
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-300" onLoad="renderDate()">
+    @include('theme::partials.holiday_helper')
+    @php
+        $todayHoliday = null;
+        if (class_exists('HolidayHelper')) {
+            $todayHoliday = HolidayHelper::getTodayHoliday();
+        }
+    @endphp
+    @if ($todayHoliday)
+        <!-- Holiday Alert Banner -->
+        <div class="w-full bg-gradient-to-r from-rose-600 via-amber-600 to-rose-600 text-white py-3.5 px-4 text-center text-xs lg:text-sm font-semibold tracking-wide shadow-md flex items-center justify-center gap-2 relative z-50 transition-all duration-300">
+            <i class="fas fa-exclamation-circle animate-pulse text-sm lg:text-base flex-shrink-0"></i>
+            <span>HARI LIBUR NASIONAL: <strong class="underline">{{ strtoupper($todayHoliday) }}</strong> - Pelayanan Kantor Tutup. Gunakan Layanan Mandiri untuk keperluan online.</span>
+        </div>
+    @endif
     <!-- Cyber background elements -->
     <div class="cyber-radial"></div>
     <!-- Scroll to Top Button -->
