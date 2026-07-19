@@ -9,7 +9,7 @@
             <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ AmbilFotoArtikel($post['gambar'], 'sedang') }}" alt="{{ $post['judul'] }}" />
         @else
             <div class="w-full h-full flex items-center justify-center">
-                <i class="fas fa-image text-4xl text-slate-300"></i>
+                <i class="fas fa-image text-4xl text-slate-300 dark:text-slate-700"></i>
             </div>
         @endif
         @if (isset($post['kategori']))
@@ -21,20 +21,20 @@
     
     <div class="flex-1 flex flex-col justify-between py-1">
         <div>
-            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-2">
-                <span class="flex items-center gap-1"><i class="far fa-calendar-alt text-primary-500"></i> {{ tgl_indo($post['tgl_upload']) }}</span>
-                <span class="flex items-center gap-1"><i class="far fa-eye text-primary-500"></i> {{ hit($post['hit']) }}</span>
+            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-300 mb-2 font-medium">
+                <span class="flex items-center gap-1"><i class="far fa-calendar-alt text-primary-500 dark:text-primary-400"></i> {{ tgl_indo($post['tgl_upload']) }}</span>
+                <span class="flex items-center gap-1"><i class="far fa-eye text-primary-500 dark:text-primary-400"></i> {{ hit($post['hit']) }}</span>
             </div>
             
-            <h2 class="text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-200 font-heading leading-snug group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors mb-3">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-800 dark:text-white font-heading leading-snug group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors mb-3">
                 <a href="{{ $post->url_slug }}">{{ $post['judul'] }}</a>
             </h2>
             
-            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 line-clamp-3">{!! strip_tags($abstrak) !!}...</p>
+            <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed mb-4 line-clamp-3">{!! strip_tags($abstrak) !!}...</p>
         </div>
         
         <div>
-            <a class="inline-flex items-center gap-1.5 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-bold text-sm transition-colors group/btn" href="{{ $post->url_slug }}">
+            <a class="inline-flex items-center gap-1.5 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-350 font-bold text-sm transition-colors group/btn" href="{{ $post->url_slug }}">
                 Baca Selengkapnya 
                 <i class="fas fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform"></i>
             </a>

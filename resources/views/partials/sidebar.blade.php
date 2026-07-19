@@ -14,7 +14,7 @@
     @endphp
     @if (!empty($iklan_sidebar_clean))
         <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur-lg p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800 border-t-[3px] border-t-primary-600 dark:border-t-primary-500 shadow-soft mb-6 hover:shadow-medium transition-all duration-300 flex flex-col items-center">
-            <h4 class="border-b border-slate-100 dark:border-slate-800/50 text-slate-800 dark:text-slate-200 text-[18px] font-heading font-extrabold mb-[15px] pb-[10px] w-full capitalize tracking-wider">Sponsor</h4>
+            <h4 class="border-b border-slate-100 dark:border-slate-800/50 text-slate-800 dark:text-white text-[18px] font-heading font-extrabold mb-[15px] pb-[10px] w-full capitalize tracking-wider">Sponsor</h4>
             <div class="w-full flex justify-center overflow-hidden adsense-sidebar-container">
                 {!! $iklan_sidebar !!}
             </div>
@@ -31,10 +31,10 @@
             @endphp
             
             <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur-lg p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800 border-t-[3px] border-t-primary-600 dark:border-t-primary-500 shadow-soft mb-6 hover:shadow-medium transition-all duration-300">
-                <h4 class="border-b border-slate-100 dark:border-slate-800/50 text-slate-800 dark:text-slate-200 text-[18px] font-heading font-extrabold mb-[15px] pb-[10px] capitalize tracking-wider">{{ $judul_widget['judul_widget'] }}</h4>
+                <h4 class="border-b border-slate-100 dark:border-slate-800/50 text-slate-800 dark:text-white text-[18px] font-heading font-extrabold mb-[15px] pb-[10px] capitalize tracking-wider">{{ $judul_widget['judul_widget'] }}</h4>
                 <div class="w-full">
                     @if ($widget['jenis_widget'] == 3)
-                        <div class="prose prose-sm max-w-none text-slate-600 dark:text-slate-400 dark:prose-invert prose-a:text-[#1b2032] dark:prose-a:text-primary-400 hover:prose-a:text-primary-600 dark:hover:prose-a:text-primary-300 overflow-hidden">
+                        <div class="prose prose-sm max-w-none text-slate-600 dark:text-slate-350 dark:prose-invert prose-a:text-[#1b2032] dark:prose-a:text-primary-300 hover:prose-a:text-primary-600 dark:hover:prose-a:text-primary-200 overflow-hidden">
                             {!! html_entity_decode($widget['isi']) !!}
                         </div>
                     @else
@@ -47,22 +47,22 @@
 
     <!-- Quick Links Section -->
     <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur-lg p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800 border-t-[3px] border-t-primary-600 dark:border-t-primary-500 shadow-soft mb-6 hover:shadow-medium transition-all duration-300">
-        <h4 class="border-b border-slate-100 dark:border-slate-800/50 text-slate-800 dark:text-slate-200 text-[18px] font-heading font-extrabold mb-[15px] pb-[10px] capitalize tracking-wider font-heading">Menu Pintas</h4>
+        <h4 class="border-b border-slate-100 dark:border-slate-800/50 text-slate-800 dark:text-white text-[18px] font-heading font-extrabold mb-[15px] pb-[10px] capitalize tracking-wider font-heading">Menu Pintas</h4>
         
         <ul class="m-0 p-0 list-none space-y-2">
             <li>
-                <a href="{{ site_url('data-wilayah') }}" class="flex items-center text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary-600 dark:hover:text-primary-400 transition-colors py-1">
-                    <i class="fas fa-chevron-right mr-[10px] text-xs text-primary-500"></i> Data Wilayah
+                <a href="{{ site_url('data-wilayah') }}" class="flex items-center text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary-600 dark:hover:text-primary-400 transition-colors py-1">
+                    <i class="fas fa-chevron-right mr-[10px] text-xs text-primary-500 dark:text-primary-400"></i> Data Wilayah
                 </a>
             </li>
             <li>
-                <a href="{{ site_url('data-statistik') }}" class="flex items-center text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary-600 dark:hover:text-primary-400 transition-colors py-1">
-                    <i class="fas fa-chevron-right mr-[10px] text-xs text-primary-500"></i> Statistik Desa
+                <a href="{{ site_url('data-statistik') }}" class="flex items-center text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary-600 dark:hover:text-primary-400 transition-colors py-1">
+                    <i class="fas fa-chevron-right mr-[10px] text-xs text-primary-500 dark:text-primary-400"></i> Statistik Desa
                 </a>
             </li>
             <li>
-                <a href="{{ site_url('galeri') }}" class="flex items-center text-slate-600 dark:text-slate-400 text-sm font-semibold hover:text-primary-600 dark:hover:text-primary-400 transition-colors py-1">
-                    <i class="fas fa-chevron-right mr-[10px] text-xs text-primary-500"></i> Galeri Foto
+                <a href="{{ site_url('galeri') }}" class="flex items-center text-slate-600 dark:text-slate-300 text-sm font-semibold hover:text-primary-600 dark:hover:text-primary-400 transition-colors py-1">
+                    <i class="fas fa-chevron-right mr-[10px] text-xs text-primary-500 dark:text-primary-400"></i> Galeri Foto
                 </a>
             </li>
         </ul>

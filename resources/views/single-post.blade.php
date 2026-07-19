@@ -5,11 +5,11 @@
     <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur-lg rounded-2xl shadow-soft border border-slate-200/50 dark:border-slate-800 p-6 mb-6 transition-colors duration-300">
         <div class="space-y-4">
             <!-- Breadcrumb -->
-            <nav class="flex items-center space-x-2 text-sm text-gray-500 dark:text-slate-400">
+            <nav class="flex items-center space-x-2 text-sm text-gray-500 dark:text-slate-300">
                 <a href="{{ site_url() }}" class="hover:text-primary-600 transition-colors duration-200">
                     <i class="fas fa-home"></i>
                 </a>
-                <i class="fas fa-chevron-right text-gray-300 dark:text-slate-700"></i>
+                <i class="fas fa-chevron-right text-gray-300 dark:text-slate-500"></i>
                 <a href="{{ site_url('artikel') }}" class="hover:text-primary-600 transition-colors duration-200">
                     Artikel
                 </a>
@@ -20,12 +20,12 @@
             </nav>
             
             <!-- Article Title -->
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 leading-tight">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
                 {{ $artikel['judul'] ?? 'Judul Artikel' }}
             </h1>
             
             <!-- Article Meta -->
-            <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-slate-400">
+            <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-slate-300">
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-calendar text-primary-500"></i>
                     <span>{{ $artikel['tgl_upload'] ?? date('d M Y') }}</span>
@@ -78,11 +78,11 @@
         @endif
         
         <!-- Article Text Content -->
-        <div class="prose prose-lg max-w-none dark:prose-invert text-slate-800 dark:text-slate-200">
+        <div class="prose prose-lg max-w-none dark:prose-invert text-slate-800 dark:text-slate-100">
             @if (isset($artikel['isi']))
                 {!! $artikel['isi'] !!}
             @else
-                <p class="text-gray-600 dark:text-slate-400">Konten artikel tidak tersedia.</p>
+                <p class="text-gray-600 dark:text-slate-300">Konten artikel tidak tersedia.</p>
             @endif
         </div>
 
@@ -99,10 +99,10 @@
         <!-- Article Tags -->
         @if (isset($artikel['tag']) && !empty($artikel['tag']))
             <div class="mt-8 pt-6 border-t border-gray-200 dark:border-slate-800/50">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-slate-200 mb-3">Tag:</h3>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Tag:</h3>
                 <div class="flex flex-wrap gap-2">
                     @foreach (explode(',', $artikel['tag']) as $tag)
-                        <span class="bg-primary-100 dark:bg-primary-950/40 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full text-sm font-medium hover:bg-primary-200 dark:hover:bg-primary-900/40 transition-colors duration-200">
+                        <span class="bg-primary-100 dark:bg-primary-950/40 text-primary-700 dark:text-primary-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-primary-200 dark:hover:bg-primary-900/40 transition-colors duration-200">
                             {{ trim($tag) }}
                         </span>
                     @endforeach
@@ -122,10 +122,10 @@
                             <i class="fas fa-image text-gray-400 text-2xl"></i>
                         </div>
                     </div>
-                    <h4 class="font-semibold text-gray-900 dark:text-slate-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 mb-2">
+                    <h4 class="font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 mb-2">
                         Artikel Terkait {{ $i }}
                     </h4>
-                    <p class="text-gray-600 dark:text-slate-400 text-sm text-xs line-clamp-2">
+                    <p class="text-gray-600 dark:text-slate-300 text-sm text-xs line-clamp-2">
                         Ini adalah artikel terkait yang mungkin menarik untuk dibaca.
                     </p>
                 </article>
@@ -159,8 +159,8 @@
     <!-- Comments Section -->
     <div class="bg-white dark:bg-slate-900/60 rounded-2xl shadow-lg border border-gray-200 dark:border-slate-800 p-6 transition-colors duration-300">
         <h3 class="text-xl font-bold text-gray-900 dark:text-slate-100 mb-4">Komentar (0)</h3>
-        <div class="text-center py-8 text-gray-500 dark:text-slate-400">
-            <i class="fas fa-comments text-4xl mb-4 text-gray-300 dark:text-slate-700"></i>
+        <div class="text-center py-8 text-gray-500 dark:text-slate-300">
+            <i class="fas fa-comments text-4xl mb-4 text-gray-300 dark:text-slate-600"></i>
             <p>Belum ada komentar untuk artikel ini.</p>
             <p class="text-sm">Jadilah yang pertama memberikan komentar!</p>
         </div>

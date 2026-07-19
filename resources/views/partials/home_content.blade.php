@@ -50,8 +50,8 @@
     <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px]">
         <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur-lg rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.06)] border border-slate-200/50 dark:border-slate-800/50 p-8 lg:p-12 transition-colors duration-300">
             <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 dark:text-slate-100 font-heading mb-3 tracking-wide">LAYANAN UNGGULAN</h2>
-                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-sm md:text-base">Akses cepat menuju berbagai layanan pemerintahan and informasi publik desa.</p>
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 dark:text-white font-heading mb-3 tracking-wide">LAYANAN UNGGULAN</h2>
+                <p class="text-slate-500 dark:text-slate-300 max-w-2xl mx-auto text-sm md:text-base">Akses cepat menuju berbagai layanan pemerintahan and informasi publik desa.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 <!-- Layanan Mandiri -->
@@ -61,8 +61,8 @@
                         <i class="fas fa-desktop text-2xl text-primary-600 dark:text-primary-400 group-hover:text-white transition-colors"></i>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Layanan Mandiri</h4>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Urus surat menyurat secara online tanpa harus antre di balai desa.</p>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-white font-heading mb-2">Layanan Mandiri</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-300 leading-relaxed">Urus surat menyurat secara online tanpa harus antre di balai desa.</p>
                     </div>
                 </a>
                 @endif
@@ -73,8 +73,8 @@
                         <i class="fas fa-map-marked-alt text-2xl text-teal-600 dark:text-teal-400 group-hover:text-white transition-colors"></i>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Data Wilayah</h4>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Statistik dan demografi kependudukan yang selalu diperbarui.</p>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-white font-heading mb-2">Data Wilayah</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-300 leading-relaxed">Statistik dan demografi kependudukan yang selalu diperbarui.</p>
                     </div>
                 </a>
 
@@ -84,8 +84,8 @@
                         <i class="fas fa-chart-pie text-2xl text-amber-500 dark:text-amber-400 group-hover:text-white transition-colors"></i>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Transparansi</h4>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Laporan APBDes dan rincian pembangunan desa yang terbuka.</p>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-white font-heading mb-2">Transparansi</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-300 leading-relaxed">Laporan APBDes dan rincian pembangunan desa yang terbuka.</p>
                     </div>
                 </a>
             </div>
@@ -140,8 +140,8 @@
     <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px]">
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="w-full lg:w-1/2">
-                <h2 class="text-4xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100 font-heading mb-8 leading-tight uppercase tracking-wide">Mewujudkan Desa yang Maju, Sejahtera, dan Inovatif</h2>
-                <p class="text-slate-500 dark:text-slate-400 mb-10 leading-relaxed text-xl lg:text-2xl">
+                <h2 class="text-4xl lg:text-6xl font-bold text-slate-800 dark:text-white font-heading mb-8 leading-tight uppercase tracking-wide">Mewujudkan Desa yang Maju, Sejahtera, dan Inovatif</h2>
+                <p class="text-slate-500 dark:text-slate-300 mb-10 leading-relaxed text-xl lg:text-2xl">
                     Kami terus berupaya meningkatkan kualitas pelayanan publik dan mendorong pembangunan yang berkelanjutan demi kesejahteraan seluruh masyarakat desa.
                 </p>
                 <div class="space-y-8 mb-12">
@@ -150,8 +150,8 @@
                             <i class="fas fa-check text-2xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Pelayanan Cepat</h4>
-                            <p class="text-slate-500 dark:text-slate-400 text-lg">Sistem digitalisasi mempermudah urusan administrasi.</p>
+                            <h4 class="text-2xl font-bold text-slate-800 dark:text-white font-heading mb-2">Pelayanan Cepat</h4>
+                            <p class="text-slate-500 dark:text-slate-300 text-lg">Sistem digitalisasi mempermudah urusan administrasi.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-6">
@@ -159,8 +159,8 @@
                             <i class="fas fa-leaf text-2xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-200 font-heading mb-2">Pemberdayaan Ekonomi</h4>
-                            <p class="text-slate-500 dark:text-slate-400 text-lg">Mendukung UMKM lokal dan pertanian presisi.</p>
+                            <h4 class="text-2xl font-bold text-slate-800 dark:text-white font-heading mb-2">Pemberdayaan Ekonomi</h4>
+                            <p class="text-slate-500 dark:text-slate-300 text-lg">Mendukung UMKM lokal dan pertanian presisi.</p>
                         </div>
                     </div>
                 </div>
@@ -185,8 +185,8 @@
 <section class="py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
     <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px]">
         <div class="text-center mb-20">
-            <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-100 font-heading mb-6 uppercase tracking-wide">Kabar Terbaru</h2>
-            <p class="text-slate-500 dark:text-slate-400 max-w-3xl mx-auto text-xl lg:text-2xl">Pantau terus perkembangan, kegiatan, dan program-program terbaru dari balai desa kami.</p>
+            <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white font-heading mb-6 uppercase tracking-wide">Kabar Terbaru</h2>
+            <p class="text-slate-500 dark:text-slate-300 max-w-3xl mx-auto text-xl lg:text-2xl">Pantau terus perkembangan, kegiatan, dan program-program terbaru dari balai desa kami.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -220,16 +220,16 @@
                         
                         <!-- Content -->
                         <div class="p-6 lg:p-8">
-                            <div class="flex items-center gap-4 text-sm lg:text-base text-slate-500 dark:text-slate-400 font-medium mb-4">
+                            <div class="flex items-center gap-4 text-sm lg:text-base text-slate-500 dark:text-slate-300 font-medium mb-4">
                                 <span class="flex items-center gap-1.5"><i class="far fa-calendar"></i> {{ tgl_indo($post['tgl_upload'] ?? date('Y-m-d')) }}</span>
                                 <span class="flex items-center gap-1.5"><i class="far fa-user"></i> {{ $post['owner'] ?? 'Admin' }}</span>
                             </div>
-                            <h3 class="text-2xl lg:text-3xl font-black text-slate-800 dark:text-slate-200 font-heading leading-tight mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2 uppercase tracking-wide">
+                            <h3 class="text-2xl lg:text-3xl font-black text-slate-800 dark:text-white font-heading leading-tight mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2 uppercase tracking-wide">
                                 <a href="{{ isset($post['url_slug']) ? $post['url_slug'] : site_url('artikel/' . ($post['slug'] ?? '')) }}" class="before:absolute before:inset-0">
                                     {{ $post['judul'] }}
                                 </a>
                             </h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-base lg:text-lg line-clamp-3 mb-8 leading-relaxed">
+                            <p class="text-slate-600 dark:text-slate-200 text-base lg:text-lg line-clamp-3 mb-8 leading-relaxed">
                                 {{ potong_teks($post['isi'] ?? '', 120) }}...
                             </p>
                             <span class="text-primary-600 dark:text-primary-400 font-bold text-base uppercase tracking-widest group-hover:text-accent-500 transition-colors flex items-center gap-2">
@@ -261,8 +261,8 @@
 <section class="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
     <div class="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1600px]">
         <div class="text-center mb-20">
-            <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-100 font-heading mb-6 uppercase tracking-wide">Aparatur Desa</h2>
-            <p class="text-slate-500 dark:text-slate-400 max-w-3xl mx-auto text-xl lg:text-2xl">Kami siap melayani masyarakat dengan sepenuh hati.</p>
+            <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white font-heading mb-6 uppercase tracking-wide">Aparatur Desa</h2>
+            <p class="text-slate-500 dark:text-slate-300 max-w-3xl mx-auto text-xl lg:text-2xl">Kami siap melayani masyarakat dengan sepenuh hati.</p>
         </div>
         
         <div class="aparatur-carousel -mx-4">
@@ -274,7 +274,7 @@
                         @endphp
                         <img src="{{ $fotoUrl }}" onerror="this.src='{{ base_url('assets/images/pengguna/kuser.png') }}'" alt="{{ $aparatur->pamong_nama }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-200 font-heading mb-2 uppercase tracking-wide">{{ $aparatur->pamong_nama }}</h4>
+                    <h4 class="text-2xl font-bold text-slate-800 dark:text-white font-heading mb-2 uppercase tracking-wide">{{ $aparatur->pamong_nama }}</h4>
                     <p class="text-primary-600 dark:text-primary-400 font-bold text-lg lg:text-xl">{{ is_object($aparatur->jabatan) ? $aparatur->jabatan->nama : $aparatur->jabatan }}</p>
                 </div>
             @endforeach
